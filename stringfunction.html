@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Function Method and Search</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>STRING METHOD</h1>
+        <h2>String Length Property</h2>
+        <p>The Length of the string is:</p>
+        <p id="demo1"></p>
+
+        <h2>The charAt() method returns the character at a given position in a string:</h2>
+        <p id="demo2"></p>
+
+        <h2>The charCodeAt() Method</h2>
+        <p>The charCodeAt() method return the unicode of the character at a given position in a string:</p>
+        <p id="demo3"></p>
+
+        <h2>The codePointAt() Method</h2>
+        <p>codePointAt() return the code point at a specified position in a string.</p>
+        <p>Get the code point at the first character:</p>
+        <p id="demo4"></p>
+
+        <h2>The slice() Method</h2>
+        <p>The sliced (extracted) part of the string is:</p>
+        <p id="demo5"></p>
+
+        <h3>Extract a part of a string from position 7:</h3>
+        <p id="demo5-1"></p>
+
+        <h3>Extract a part of a string counting from the end:</h3>
+        <p id="demo5-2"></p>
+
+        <h3>Extract a part of a string and return the extracted parts in a new string:</h3>
+        <p id="demo5-3"></p>
+
+        <h2>Convert string to Upper Case():</h2>
+        <button onclick="myFunction()">Try it!</button>
+        <p id="demo6">Hello Fruits!</p>
+
+        <h2>Convert string to lower case():</h2>
+        <button onclick="myFunction()">Try this!</button>
+        <p id="demo7">Hello Lower Case</p>
+
+        <h2>The trim() Method</h2>
+        <p id="demo8"></p>
+
+        <h2>String Replace()</h2>
+        <p>Replace "Microsoft" with "W3School" in the paragraph below:</p>
+        <button onclick="myFunction()">Try me!</button>
+        <p id="demo9-1">Please visit Microsoft!</p>
+
+        <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo9-2">Please visit Microsoft and Microsoft!</p>
+
+        <p>Try to replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo9-3">Please visit Microsoft!</p>
+
+        <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+        <p id="demo9-4">Please visit Microsoft!</p>
+
+        <p>Replace all occurrences of "Microsoft" with "W3Schools" in the paragraph below:</p>
+        <p id="demo9-5">Please visit Microsoft and Microsoft!</p>
+
+        <h2>String Split()</h2>
+        <p id="demo10"></p>
+        <p id="demo10-1"></p>
+        <p id="demo10-2"></p>
+
+
+
+        <script>
+            let text1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.getElementById("demo1").innerHTML = text1.length;
+
+            var text2 = "HELLO WORLD";
+            document.getElementById("demo2").innerHTML = text2.charAt(8);
+
+            let text3 = "HELLO WORLD";
+            document.getElementById("demo3").innerHTML = text3.charCodeAt(1);
+
+            let text4 = "HELLO WORLD";
+            let code = text4.codePointAt(5);
+            document.getElementById("demo4").innerHTML = code;
+
+            let text5 = "Apple, Banana, Kiwi";
+            let part1 = text5.slice(6, 13);
+            document.getElementById("demo5").innerHTML = part1;
+
+            let text6 = "Apple, Banana, Kiwi";
+            let part2 = text6.slice(7);
+            document.getElementById("demo5-1").innerHTML = part2;
+
+            let text7 = "Apple, Banana, Kiwi";
+            let part3 = text7.slice(-12);
+            document.getElementById("demo5-2").innerHTML = part3;
+
+            let text8 = "Apple, Banana, Kiwi";
+            let part4 = text8.slice(-12, -6);
+            document.getElementById("demo5-3").innerHTML = part4;
+
+            let text11 = "    Hello World!    ";
+            let text12 = text11.trim();
+            document.getElementById("demo8").innerHTML = "Length text1 =" + text11.length + "<br> Length text2 =" + text12.length;
+
+            let text18 = "a,b,c,d,e,f";
+            const myArray1 = text18.split(",");
+            document.getElementById("demo10").innerHTML = myArray1[2];
+
+            let text19 = "Hello";
+            const myArr = text19.split(" ");
+            text19 = "";
+            for (let i = 0; i < myArr.length; i++) {
+                text19 += myArr[i] + "<br>"
+            }
+            document.getElementById("demo10-1").innerHTML = text19;
+
+            let text20 = "World";
+            const myArr1 = text19.split("|");
+            text20 = "";
+            for (let i = 0; i < myArr1.length; i++) {
+                text20 += myArr1[i] + "<br>"
+            }
+            document.getElementById("demo10-2").innerHTML = text20;
+
+            function myFunction() {
+                let text9 = document.getElementById("demo6").innerHTML;
+                document.getElementById("demo6").innerHTML = text9.toUpperCase();
+
+                let text10 = document.getElementById("demo7").innerHTML;
+                document.getElementById("demo7").innerHTML = text10.toLowerCase();
+
+                let text13 = document.getElementById("demo9-1").innerHTML;
+                document.getElementById("demo9-1").innerHTML = text13.replace("Microsoft", "W3School");
+
+                let text14 = document.getElementById("demo9-2").innerHTML;
+                document.getElementById("demo9-2").innerHTML = text14.replace("Microsoft", "W3Schools");
+
+                let text15 = document.getElementById("demo9-3").innerHTML;
+                document.getElementById("demo9-3").innerHTML = text15.replace("MICROSOFT", "W3Schools");
+
+                let text16 = document.getElementById("demo9-4").innerHTML;
+                document.getElementById("demo9-4").innerHTML = text16.replace(/MICROSOFT/i, "W3Schools");
+
+                let text17 = document.getElementById("demo9-5").innerHTML;
+                document.getElementById("demo9-5").innerHTML = text17.replace(/Microsoft/g, "W3Schools");
+
+
+            }
+
+        </script>
+    </div>
+
+    <div>
+        <h1>STRING SEARCH</h1>
+        <h2>String Indexof() Method</h2>
+        <p>The indexOf() method return the position of the first occurence of a string in a string.</p>
+        <p>The position of the first occurance of "locate" is:</p>
+        <p id="demo11"></p>
+
+        <h2>The lastIndexOf() Method</h2>
+        <p>The position of the last occurrence of "locate" is:</p>
+        <p id="demo12"></p>
+
+        <p>Both indexOf() and lastIndexOf() return -1 if the text is not found:</p>
+        <p id="demo12-1"></p>
+
+        <p>The indexOf() method accepts a second parameter as the starting position for the search:</p>
+        <p id="demo12-2"></p>
+
+        <p>The lastIndexOf() method accepts a second parameter as the starting position for the search.</p>
+        <p>Remember that the lastIndexOf() method searches backwards, so position 15 means start the search at position
+            15, and search to the beginning.</p>
+        <p id="demo12-3"></p>
+
+        <h2>The Search() Method</h2>
+        <p>The search() method returns the position of the first occurrence of a string in a string.</p>
+        <p>The position of the first occurence of "locate" is:</p>
+        <p id="demo13"></p>
+
+        <p>The search() method returns the position of the first occurrence of a string in a string.</p>
+        <p>Return the position of the first occurrence of a regular expression:</p>
+        <p id="demo13-1"></p>
+
+
+        <script>
+            let text21 = "Please locate where 'locate' occurs!";
+            let index1 = text21.indexOf("locate");
+            document.getElementById("demo11").innerHTML = index1;
+
+            let text22 = "Please locate where 'locate' occurs!";
+            let index2 = text22.lastIndexOf("locate");
+            document.getElementById("demo12").innerHTML = index2;
+
+            let text23 = "Please locate where 'locate' occurs!";
+            let index3 = text23.indexOf("John");
+            document.getElementById("demo12-1").innerHTML = index3
+
+            let text24 = "Please locate where 'locate' occurs!";
+            let index4 = text24.indexOf("locate", 15);
+            document.getElementById("demo12-2").innerHTML = index4;
+
+            let text25 = "Please locate where 'locate' occurs!";
+            let index5 = text25.lastIndexOf("locate", 15);
+            document.getElementById("demo12-3").innerHTML = index5;
+
+            let text26 = "Please locate where 'locate' occurs!";
+            let index6 = text26.search("locate");
+            document.getElementById("demo13").innerHTML = index6;
+
+            let text27 = "Please locate where 'locate' occurs!";
+            let index7 = text27.search(/locate/);
+            document.getElementById("demo13-1").innerHTML = index7;
+        </script>
+    </div>
+
+
+</body>
+
+</html>

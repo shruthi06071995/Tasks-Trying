@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPTS TOPICS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./jsfirst.css">
+</head>
+
+<body>
+    <h1>JAVASCRIPTS DISPLAY POSSIBLITIES</h1>
+    <p>Writing into HTML elements, <i>innerHTML</i>or <i>innerText</i>.<br>
+        Writing into HTML output using <i>document.write()</i>. <br>
+        Writing into alert box <i>window.alert()</i>. <br>
+        Writing into browser console <i>console.log</i>.
+    </p>
+
+    <div>
+        <h1>Using innerHTML</h1>
+        <p>To access HTML element, use document.getElementByID(id)</p>
+        <p>id - attribute to identify the HTML element</p>
+        <p>The <strong>innerHTML</strong> property to change the HTML content of HTML element</p>
+
+        <p id="demo"></p>
+
+        <script>
+            document.getElementById("demo").innerHTML = "<h2>Hello World</h2>";
+        </script>
+    </div>
+
+    <div>
+        <h1>Using innerText</h1>
+        <p>To access HTML element, <i>document.getElementById(id) method</i></p>
+        <p>The <strong>innerText</strong> property to change the inner text of HTML element:</p>
+
+        <p id="demo1"></p>
+
+        <script>
+            document.getElementById("demo1").innerText = "INNER TEXT"
+        </script>
+    </div>
+
+    <div>
+        <h1>Using document.write()</h1>
+        <p>For testing purpose, convenient to use <strong> document.write():</strong></p>
+
+        <p>Never call document. write after the document has finished loading. It will overwrite the whole document</p>
+
+        <script>
+            document.write(5 + 6);
+        </script>
+    </div>
+
+    <div>
+        <h1>DELETE ALL EXISTING HTML</h1>
+        <p>Using document.write after HTML document is loaded, delete all exising HTML</p>
+
+        <button type="button" onclick="document.write(6+6)">Try it</button>
+    </div>
+
+    <div>
+        <h1>Using Window.alert()</h1>
+        <p>You can use an alert box to display data:</p>
+
+        <script>
+            window.alert(20 + 20);
+        </script>
+    </div>
+
+    <div>
+        <h1>Window keyword can be skiped</h1>
+        <p>In Js the window object is the global scope object. This means the variables, properties and method by
+            default window object. This also means the specifying window keyword is optional</p>
+
+        <script>
+            alert(5 + 10);
+        </script>
+    </div>
+
+    <div>
+        <h1>Using Console.log</h1>
+        <p>For Debugging call the <strong>console.log()</strong> method in the browser display data. </p>
+        <h2>Activate Debugging</h2>
+
+        <p>F12 on your keyboard will activate debugging.</p>
+        <p>Then select <strong>"Console"</strong> in the debugger menu.</p>
+        <p>Then click Run again.</p>
+
+        <script>
+            console.log(5 + 6);
+        </script>
+    </div>
+
+    <div class="container">
+        <h1>JavaScript Functions</h1>
+        <p>Call a function to compute the product of p1 and p2 and return the result:</p>
+        <p id="demo"></p>
+        <script>
+            function myFunction(p1, p2) {
+                return p1 * p2;
+            }
+
+            let result = myFunction(4, 3);
+            document.getElementById("demo").innerHTML = "The result is: " + result;
+        </script>
+    </div>
+
+    <div class="container">
+        <input type="number" id="a">
+        <input type="number" id="b">
+        <button onclick="add()">add</button>
+        <h3 id="output"></h3>
+
+        <script>
+            function add() {
+                let n1 = document.getElementById('a').value
+                let n2 = document.getElementById('b').value
+                let c = Number(n1) + Number(n2)
+                document.getElementById('output').innerHTML = c
+            }
+        </script>
+    </div>
+    <div class="container">
+        <input type="text" id="d">
+        <input type="text" id="e">
+        <button onclick="sub()">sub</button>
+        <h2 id="output1"></h2>
+
+        <script>
+            function sub() {
+                let n3 = document.getElementById('d').value
+                let n4 = document.getElementById('e').value
+                let f = Number(n3) - Number(n4)
+                document.getElementById('output1').innerHTML = f
+            }
+        </script>
+    </div>
+
+    <div class="container">
+        <input type="text" id="g">
+        <input type="text" id="h">
+        <button onclick="mul()">mul</button>
+        <h2 id="output2"></h2>
+
+        <script>
+            function mul() {
+                let n1 = document.getElementById('g').value
+                let n2 = document.getElementById('h').value
+                let i = Number(n1) * Number(n2)
+                document.getElementById('output2').innerHTML = i
+            }
+        </script>
+    </div>
+
+    <div class="container">
+        <input type="text" id="n1">
+        <input type="text" id="n2"><br><br>
+
+        <button onclick="add()">Add</button>
+        <button onclick="sub()">Subtract</button>
+        <button onclick="mul()">Multiply</button>
+        <h2 id="output"></h2>
+
+        <div id="some"></div>
+
+        <script>
+            let head = document.createElement('h2');
+            head.innerText = "Calculator Result";
+            head.style.backgroundColor = "blue";
+            document.getElementById('some').appendChild(head);
+
+            document.getElementById('some').innerHTML = "<h2>Calculator Result</h2>"
+
+            function show(a) {
+                return a * a;
+            }
+
+            let x = show(10);
+
+            console.log(x);
+
+            function add() {
+                let a = Number(document.getElementById('n1').value);
+                let b = Number(document.getElementById('n2').value);
+                document.getElementById('output').innerHTML = "Result: " + (a + b);
+            }
+
+            function sub() {
+                let a = Number(document.getElementById('n1').value);
+                let b = Number(document.getElementById('n2').value);
+                document.getElementById('output').innerHTML = "Result: " + (a - b);
+            }
+
+            function mul() {
+                let a = Number(document.getElementById('n1').value);
+                let b = Number(document.getElementById('n2').value);
+                document.getElementById('output').innerHTML = "Result: " + (a * b);
+            }
+
+        </script>
+
+    </div>
+
+    <div>
+        <h1>Calculator using return values</h1>
+        <h2>Return value function</h2>
+
+        <!----addition function---->
+
+        <input type="text" id="p1">
+        <input type="text" id="p2">
+
+        <button onclick="showAdd()">Add</button>
+
+        <h2 id="Addition Result"></h2>
+
+        <!---- subtraction function---->
+
+        <input type="text" id="q1">
+        <input type="text" id="q2">
+
+        <button onclick="showSub()">Sub</button>
+
+        <h2 id="Subtraction Result"></h2>
+
+        <!--Multiplicaion Function-->
+
+        <input type="text" id="r1">
+        <input type="text" id="r2">
+
+        <button onclick="showMul()">Mul</button>
+
+        <h2 id="Multiply Result"></h2>
+
+        <script>
+            function add(l, m) {
+                return l + m;
+            }
+            function showAdd() {
+                let l = Number(document.getElementById('p1').value);
+                let m = Number(document.getElementById('p2').value);
+                document.getElementById("Addition Result").innerHTML = "Add Result: " + add(l, m);
+            }
+
+            function sub(n, o) {
+                return n - o;
+            }
+            function showSub() {
+                let n = Number(document.getElementById('q1').value);
+                let o = Number(document.getElementById('q2').value);
+                document.getElementById("Subtraction Result").innerHTML = "Sub Result: " + sub(n, o);
+            }
+
+            function mul(p, q) {
+                return p * q;
+            }
+            function showMul() {
+                let p = Number(document.getElementById('r1').value);
+                let q = Number(document.getElementById('r2').value);
+                document.getElementById("Multiply Result").innerHTML = "Mul Result: " + mul(p, q);
+            }
+
+        </script>
+    </div>
+
+    <div>
+        <h1>Date And Time</h1>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = Date()">
+            Click me to display Date and Time.</button>
+
+        <p id="demo1"></p>
+    </div>
+
+    <div>
+        <h2>What can JavaScript Do?</h2>
+        <p id="demo2">JavaScript can change in HTML content.</p>
+        <button type="button" onclick='document.getElementById("demo2").innerHTML = "hello JavaScript!" '>Click
+            Me!</button>
+    </div>
+
+    <div>
+        <h2>New try animation</h2>
+        <p>JavaScript can change HTML attribute value.</p>
+        <p>In this case JavaScript changes the value of the src (source) attributes of an images</p>
+        <button onclick="document.getElementById('myImage').src='buld.gif'">Turn on the light</button>
+        <img id="myImage" src="./buld.gif" style="width: 100px;">
+        <button onclick="document.getElementById('myImage').src='buld.gif'">Turn off the light</button>
+    </div>
+
+    <div>
+        <h2>The for Loop</h2>
+        <p id="demo3"></p>
+
+        <script>
+            const numbers = [1, 2, 3, 4, 5];
+            let len = numbers.length;
+            let text = "";
+            for (let i = 0; i < len; i++) {
+                text += numbers[i] + ",";
+            }
+            document.getElementById("demo3").innerHTML = text;
+        </script>
+    </div>
+
+    <form id="countryForm">
+        <label><input type="checkbox" name="country" value="USA"> United States</label><br>
+        <label><input type="checkbox" name="country" value="CAN"> Canada</label><br>
+        <label><input type="checkbox" name="country" value="GBR"> United Kingdom</label><br>
+        <label><input type="checkbox" name="country" value="AUS"> Australia</label><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;">Please select at least one country.</p>
+
+    <script>
+        function isAnyCountrySelected() {
+            const checkboxes = document.querySelectorAll('input[name="country"]');
+            for (const checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    return true; // Found at least one checked
+                }
+            }
+            return false; // None were found
+        }
+    </script>
+
+    <form id="selectionForm">
+        <label>Choose your favorite colors:</label><br>
+        <input type="checkbox" name="colors" value="red"> Red<br>
+        <input type="checkbox" name="colors" value="blue"> Blue<br>
+        <input type="checkbox" name="colors" value="green"> Green<br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('selectionForm').addEventListener('submit', function (event) {
+            const colorCheckboxes = document.querySelectorAll('input[name="colors"]');
+            let isAtLeastOneChecked = false;
+
+            colorCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    isAtLeastOneChecked = true;
+                }
+            });
+
+            if (!isAtLeastOneChecked) {
+                alert('Please select at least one color.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+
+    <div>
+        <select name="mySelect" required>
+            <option value="" disabled selected>Please select an option</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+        </select>
+        <script>
+            function validateSelect() {
+                var selectElement = document.getElementById("mySelect");
+                if (selectElement.value === "") {
+                    alert("Please select an option!");
+                    return false; // Prevent form submission
+                }
+                return true; // Allow form submission
+            }
+        </script>
+    </div>
+</body>
+
+</html>

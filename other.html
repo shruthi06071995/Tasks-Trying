@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <h1>Registration Form</h1>
+            <h3>Username</h3>
+            <input type="text" id="username" placeholder="username">
+            <p id="Uname"></p>
+            <h3>Email</h3>
+            <input type="text" id="email" placeholder="Email">
+            <p id="mail"></p>
+            <h3>Password</h3>
+            <input type="password" id="password" placeholder="password">
+            <p id="pw"></p>
+            <h3>Mobile Number</h3>
+            <input type="text" id="mobilenumber" placeholder="mobile number">
+            <p id="mob"></p>
+            <h3>DOB</h3>
+            <input type="date" id="dob" placeholder="dd-mm-yyyy">
+            <p id="date"></p>
+
+            <h3>Gender</h3>
+            <input type="radio" id="red" name="gender" value="male">
+            <label for="red">Male</label>
+            <input type="radio" id="blue" name="gender" value="female">
+            <label for="blue">Female</label>
+            <input type="radio" id="green" name="gender" value="other">
+            <label for="green">Prefer not to say</label><br>    
+            <p id="gndr"></p>
+
+            <h3>Address</h3>
+            <input type="text" id="address" placeholder="address">
+            <p id="add"></p>
+
+            <select name="country" id="country">
+                <option value="">-- Select Country --</option>
+                <option value="In">India</option>
+                <option value="US">United States</option>
+                <option value="GB">United Kingdom</option>
+                <option value="CA">Canada</option>
+                <option value="AU">Australia</option>
+            </select>
+            <p id="message" ></p>
+
+            <input type="text" id="pin" placeholder="Enter the postal code">
+            <p id="code" ></p>
+
+            <p>Select a file:</p>
+            <input type="file1" id="myfile1">
+            <button onclick="validateFile()">Upload</button>
+            <p id="upload1"></p>
+
+            <input type="checkbox" id="agreeTerms" name="terms">
+            <label for="agreeTerms">I agree to the terms and conditions</label>
+
+            <button onclick="userForm()">Submit</button>
+            <script>
+                function userForm() {
+
+                    //Username validation
+                    let name = document.getElementById("username").value;
+                    let usernamepattern = /^[a-zA-Z]{3,10}$/;
+                    if (name == "") {
+                        document.getElementById("Uname").innerHTML = "*Enter your name";
+                    }
+                    else if (!usernamepattern.test(name)) {
+                        document.getElementById("Uname").innerHTML = "*Enter a valid name";
+                    } else {
+                        document.getElementById("Uname").innerHTML = "";
+                    }
+
+                    //Email validation
+                    let e = document.getElementById("email").value;
+                    let mailpattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (e == "") {
+                        document.getElementById("mail").innerHTML = "*Enter your mail ID";
+                    }
+                    else if (!mailpattern.test(e)) {
+                        document.getElementById("mail").innerHTML = "*Enter a valid mail ID"
+                    }
+                    else {
+                        document.getElementById("mail").innerHTML = "";
+                    }
+
+                    //Password validation
+                    let pass = document.getElementById("password").value;
+                    let pwpattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if (pass == "") {
+                        document.getElementById("pw").innerHTML = "*Enter your password";
+                    }
+                    else if (!pwpattern.test(pass)) {
+                        document.getElementById("pw").innerHTML = "*Enter the correct password";
+                    }
+                    else {
+                        document.getElementById("pw").innerHTML = "";
+                    }
+
+                    //Mobile Number validation
+                    let mobile = document.getElementById("mobilenumber").value;
+                    let mobpattern = /^\d{10}$/;
+                    if (mobile == "") {
+                        document.getElementById("mob").innerHTML = "*Enter your mobile number";
+                    }
+                    else if (!mobpattern.test(mobile)) {
+                        document.getElementById("mob").innerHTML = "*Enter a valid mobile number";
+                    }
+                    else {
+                        document.getElementById("mob").innerHTML = "";
+                    }
+
+                    //DOB validation
+                    let birth = document.getElementById("dob").value;
+                    let dobpattern = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d\d$/;
+                    if (birth == "") {
+                        document.getElementById("date").innerHTML = "*Enter your date of birth";
+                    }
+                    else if (!dobpattern.test(birth)) {
+                        document.getElementById("date").innerHTML = "*Enter a valid date";
+                    }
+                    else {
+                        document.getElementById("date").innerHTML = "";
+                    }
+
+                    //Gender validation
+                    const selectedGender = document.querySelector('input[name="gender"]:checked');
+                    if (!selectedGender) {
+                        document.getElementById("gndr").innerHTML = "*Select your gender";
+                    } else {
+                        document.getElementById("gndr").innerHTML = "";
+                    }
+
+                    //Address validation
+                    let addr = document.getElementById("address").value;
+                    if (addr == "") {
+                        document.getElementById("add").innerHTML = "*Enter your address";
+                    } else {
+                        document.getElementById("add").innerHTML = "";
+                    }
+
+                    //Country validation
+                    const country = document.getElementById("country");
+                    const message = document.getElementById("message");
+
+                    message.textContent = '';
+                    country.classList.remove('invalid');
+
+                    if (!country.value) {
+                        country.classList.add('invalid');
+                        message.className = 'error';
+                        message.textContent = 'Please select a country';
+                        country.focus();
+                        return false;
+                    }
+
+                    //Postal Code validation
+                    var post = document.getElementById("pin").value;
+
+                    if (/^[0-9]{6}$/.test(post)) {
+                        document.getElementById("code").innerHTML = "Valid Postal Code";
+                    } else {
+                        document.getElementById("code").innerHTML = "Invalid Postal Code";
+                    }
+                    console.log("pin");
+
+                    //File validation
+                    function validateFile() {
+                        var fileInput = document.getElementById('myfile1');
+                        var filePath = fileInput.value;
+                        var allowedExtensions = /^(\.jpg|\.jpeg|\.png|\.gif)$/;
+
+                        if (!allowedExtensions.exec(filePath)) {
+                            document.getElementById("upload1").innerHTML = "Invalid file type";
+                            fileInput.value = '';
+                            return false;
+                            console.log("upload1");
+                        } else {
+                            document.getElementById("upload1").innerHTML = "File uploaded successfully";
+                        }
+                    }
+
+                    document.getElementById('userForm').addEventListener('submit', function(event) {
+                        const agreeCheckbox = document.getElementById('#agreeTerms');
+
+                        if (!agreeCheckbox.checked) {
+                            alert('You must agree to the terms and conditions before submitting the form.');
+                            event.preventDefault();
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

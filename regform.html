@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <div>
+        <h1>Sample Form</h1>
+        <h5>Username</h5>
+        <input type="text" id="username">
+        <p id="name"></p>
+        <h5>Email</h5>
+        <input type="text" id="email">
+        <p id="mail"></p>
+        <h5>Password</h5>
+        <input type="text" id="password">
+        <p id="pw"></p>
+        <h5>Mobile Number</h5>
+        <input type="text" id="mobilenumber">
+        <p id="mob"></p>
+        <h5>DOB</h5>
+        <input type="text" id="dob">
+        <p id="date"></p>
+
+        <input type="radio" id="red" name="gender" value="male">
+        <label for="red">Male</label><br>
+        <input type="radio" id="blue" name="gender" value="female">
+        <label for="blue">Female</label>
+        <input type="radio" id="green" name="gender" value="other">
+        <label for="green">Other</label><br><br>
+        <p id="gndr"></p>
+
+        <h5>Address</h5>
+        <input type="text" id="address">
+        <p id="add"></p>
+
+        <select name="country" id="country">
+            <option value="">-- Select Country --</option>
+            <option value="In">India</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+        </select>
+        <p id="message"></p>
+
+        <h5>Postal Code</h5>
+        <input type="text" id="pin" placeholder="Enter the postal code">
+        <p id="code"></p>
+
+        <p>Select a file:</p>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">upload</button>
+        <p id="message"></p>
+
+        <button onclick="userForm()">submit</button>
+        <script>
+            function userForm() {
+
+                //Username
+                let n = document.getElementById("username").value;
+                let pattern = /^[a-zA-Z]{3,10}$/;
+                if (n == "") {
+                    document.getElementById("name").innerHTML = "Enter your name";
+                }
+                else if (!pattern.test(n)) {
+                    document.getElementById("name").innerHTML = "Enter a valid name";
+                }
+                else {
+                    document.getElementById("name").innerHTML = "";
+                }
+
+                //Email 
+                let e = document.getElementById("email").value;
+                let mailpattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (e == "") {
+                    document.getElementById("mail").innerHTML = "Enter your mail ID";
+                }
+                else if (!mailpattern.test(e)) {
+                    document.getElementById("mail").innerHTML = "Enter a valid mail ID"
+                }
+                else {
+                    document.getElementById("mail").innerHTML = "";
+                }
+
+                //Password
+                let p = document.getElementById("password").value;
+                let pwpattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (p == "") {
+                    document.getElementById("pw").innerHTML = "Enter your password";
+                }
+                else if (!pwpattern.test(p)) {
+                    document.getElementById("pw").innerHTML = "Enter the correct password";
+                }
+                else {
+                    document.getElementById("pw").innerHTML = "";
+                }
+
+                //Mobile Number
+                let m = document.getElementById("mobilenumber").value;
+                let mobpattern = /^\\d{10}$/;
+                if (m == "") {
+                    document.getElementById("mob").innerHTML = "Enter your mobile number";
+                }
+                else if (!mobpattern.test(m)) {
+                    document.getElementById("mob").innerHTML = "Enter a valid mobile number";
+                }
+                else {
+                    document.getElementById("mob").innerHTML = "";
+                }
+
+                //DOB
+                let d = document.getElementById("dob").value;
+                let datepattern = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d\d$/;
+                if (d == "") {
+                    document.getElementById("date").innerHTML = "Enter your DOB";
+                }
+                else if (!datepattern.test(d)) {
+                    document.getElementById("date").innerHTML = "Enter a valid DOB";
+                }
+                else {
+                    document.getElementById("date").innerHTML = "";
+                }
+
+                //Gender
+                const selectGender = document.querySelector('input[name="gender"]:checked');
+
+                if (selectGender) {
+                    document.getElementById("gndr").innerHTML = "";
+                }
+                else {
+                    document.getElementById("gndr").innerHTML = "*Please select your gender";
+                }
+
+                //Address
+                let a = document.getElementById("address").value;
+                if (a == "") {
+                    document.getElementById("add").innerHTML = "*Enter your address";
+                }
+                else {
+                    document.getElementById("add").innerHTML = "";
+                }
+
+                //Country
+                const country = document.getElementById("country");
+                const message = document.getElementById("message");
+
+                message.textContent = '';
+                country.classList.remove('invalid');
+
+                if (!country.value) {
+                    country.classList.add('invalid');
+                    message.className = 'error';
+                    message.textContent = '*Please select your country';
+                    country.focus();
+                    return false;
+                }
+
+                //postal code
+                var post = document.getElementById("pin").value;
+
+                if (/^[0-9]{6}$/.test(post)) {
+                    document.getElementById("code").innerHTML = "Valid Postal Code";
+                } else {
+                    document.getElementById("code").innerHTML = "Invalid Postal Code";
+                }
+
+                //file validation
+                if (!fileSelected) {
+                    document.getElementById("msg").innerHTML = "Upload a file before submitting!";
+                    document.getElementById("msg").style.color = "red";
+                }
+                else {
+                    document.getElementById("msg").innerHTML = "Form submitted!";
+                    document.getElementById("msg").style.color = "blue";
+                }
+
+            }
+
+            function uploadFile() {
+                let file = document.getElementById("fileInput").value;
+
+                if (file === "") {
+                    document.getElementById("msg").innerHTML = "Please choose a file!";
+                    fileSelected = false;
+                }
+                else {
+                    document.getElementById("msg").innerHTML = "File uploaded successfully!";
+                    document.getElementById("msg").style.color = "green";
+                    fileSelected = true;
+                }
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>

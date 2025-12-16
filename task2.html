@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task in String Search and Methods</title>
+</head>
+
+<body>
+
+    <div>
+        <h1><u>TASK 1 : STRING METHODS</u></h1><br>
+            <!--Reverse a Word-->
+        <h2>String : Reverse Word</h2>
+        <input type="text" id="input1" placeholder="Enter a word">
+        <button onclick="stringFunction()">Reverse Word</button>
+        <p id="reversedword"></p>
+
+            <!--Reverse the Sentence-->
+        <h2>String : Reverse a Sentence</h2>
+        <input type="text" id="input2" placeholder="Enter some sentence">
+        <button onclick="stringFunction()">Reverse Sentence</button>
+        <p id="reversedSentence"></p>
+
+            <!--Count Vowels String-->
+        <h2>Counting Vowels in a String</h2>
+        <input type="text" id="input3" placeholder="Enter something">
+        <button onclick="stringFunction()">Count Vowels</button>
+        <p id="countVowels"></p>
+
+            <!--Count number of Alphabets and Digits-->
+        <h2>Count Number of Alphabets and Digits in a String</h2>
+        <input type="text" id="input4" placeholder="Enter something">
+        <button onclick="stringFunction()">Count!</button>
+        <p id="countValues"></p>
+
+            <!--Check string Matches after Reverse-->
+        <h2>Check if String Match After Reverse</h2>
+        <input type="text" id="input5" placeholder="Enter something"> <br><br>
+        <input type="text" id="input6" placeholder="Enter something">
+        <button onclick="stringFunction()">Check!</button>
+        <p id="matchString"></p>
+        
+            <!--Check String Contains only Alphabetical Characters-->
+        <h2>Check the String contains only Alphabetical Characters</h2>
+        <input type="text" id="input7" placeholder="Enter something">
+        <button onclick="stringFunction()">Check it!</button>
+        <p id="alphaString"></p>
+
+            <!--Check two string are anagram or not-->
+        <h2>Checking the strings are Anagrams</h2>
+        <input type="text" id="input8" placeholder="Enter some strings">
+        <input type="text" id="input9" placeholder="Enter some strings">
+        <button onclick="stringFunction()">Ana Check!</button>
+        <p id="checkAnagram"></p>
+
+            <!--Truncate a string to certain length and add Ellipsis-->
+        <h2>Truncate String with Ellipsis</h2>
+        <input type="text" id="input10" placeholder="Enter some text">
+        <input type="text" id="len" placeholder="Enter for length">
+        <button onclick="stringFunction()">Truncate</button>
+        <p id="truncateText"></p>
+
+            <!--Replace Multiple Characters-->
+        <h2>Replace Multiple Characters</h2>
+        <input type="text" id="input11" placeholder="Enter text">
+        <button onclick="stringFunction()">Replace!</button>
+        <p id="replaceChars"></p>
+
+            <!--Sort String Alphabetically-->
+        <h2>Sort Strings Alphabetically (Ignoring case)</h2>
+        <input type="text" id="input12" placeholder="Enter the string">
+        <button onclick="stringFunction()">Sort!</button>
+        <p id="sortString"></p>
+
+        <script>
+            function stringFunction() {
+                    //reverse word
+                let text1 = document.getElementById("input1").value;
+                let word = text1.split("").reverse().join("");
+                document.getElementById("reversedword").innerHTML = word;
+
+                    //reverse sentence
+                let text2 =  document.getElementById("input2").value;
+                let sentence = text2.split("").reverse().join("");
+                document.getElementById("reversedSentence").innerHTML = sentence;
+
+                    //vowels
+                let text3 = document.getElementById("input3").value.toLowerCase();
+                let vowels = "aeiou";
+                let countvow = 0;
+
+                for (let i = 0; i < text3.length; i++) {
+                    if (vowels.includes(text3[i])) {
+                        countvow++ ;
+                    }
+                }
+                document.getElementById("countVowels").innerHTML = "Total Vowels :" + countvow ;
+
+                    //count alphabets, digits
+                let text4 = document.getElementById("input4").value;
+
+                let alphabetCount = 0;
+                let digitCount = 0;
+
+                for (let i = 0; i < text4.length; i++) {
+                    let chars = text4[i];
+
+                    if ((chars >= 'A' && chars <= 'Z') || (chars >= 'a' && chars <= 'z')) {
+                        alphabetCount++;
+                    }
+
+                    else if (chars >= '0' && chars <= '9') { 
+                        digitCount++;
+                    }
+                }
+                document.getElementById("countValues").innerHTML = "Alphabets :" + alphabetCount + "<br>" + "Digits :" + digitCount;
+
+                //Check if String Matches after Reversed
+            let text5 = document.getElementById("input5").value;
+            let text6 = document.getElementById("input6").value;
+
+                //Reverse the first string 
+            let reversestring1 = text5.split("").reverse().join("");  
+            let reversestring2 = text6.split("").reverse().join("");
+
+            if (reversestring1 === text6) {
+                document.getElementById("matchString").innerHTML = "Both strings are same after reversing!";
+            }
+            else  {
+                document.getElementById("matchString").innerHTML = "String are NOT same after reversing.";
+            }
+                
+                //Check String contains only Alphabetical characters
+            let text7 = document.getElementById("input7").value;
+            let isAlpha = true;
+
+            for (i = 0; i < text7.length; i++) {
+                let char = text7[i];
+
+                //checking the characters of not between A-Z or a-z
+                if (!((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z'))){
+                    isAlpha = false;
+                    break;
+                }
+            }
+            if (isAlpha && text7.length > 0) {
+                document.getElementById("alphaString").innerHTML = "The String contains only Alphabetical characters";
+            }
+            else {
+                document.getElementById("alphaString").innerHTML = "The String Contains NON-Alphabetical characters";
+            }
+                
+                //Checking that two giving strings are anagram or not
+            let text8 = document.getElementById("input8").value;
+            let text9 = document.getElementById("input9").value;
+
+            text8 = text8.replace(/\s/g, "");
+            text9 = text9.replace(/\s/g, "");
+
+            let sort1 = text8.split("").sort().join("");
+            let sort2 = text9.split("").sort().join("");
+
+            if (sort1 === sort2) {
+                document.getElementById("checkAnagram").innerHTML = "The strings are Anagrams";
+            }
+            else {
+                document.getElementById("checkAnagram").innerHTML = "The strings are NOT Anagrams"
+            }
+                    
+                    //Truncate String Function
+            let text10 = document.getElementById("input10").value;
+            let limit = Number(document.getElementById("len").value);
+
+            let trun;
+
+            if (text10.length > limit) {
+                trun = text10.slice(0, limit) + "...";
+            }
+            else {
+                trun = text10;
+            }
+            document.getElementById("truncateText").innerHTML = trun;
+
+                    //Replace Multiple Characters
+            let text11 = document.getElementById("input11").value;
+
+            let update = text11.replace(/[aei]/g, "*");
+
+            document.getElementById("replaceChars").innerHTML = update;
+
+                //Sort String Alphabetically(Ignoring cases)
+            let text12 = document.getElementById("input12").value;
+            
+            let sortString = text12
+                .toLowerCase()
+                .split("")
+                .sort()
+                .join("");
+            document.getElementById("sortString").innerHTML = "Sorted String :" + sortString;
+            }
+        </script> 
+    </div> <br><br>
+
+    <div>
+        <h1><u>USING STRING SEARCH</u></h1>
+                <!--Check if String contains a Word-->
+        <h2>Check if string contains a word</h2>
+        <input type="text" id="input13" placeholder="Enter some text">
+        <input type="text" id="input14" placeholder="Enter some word">
+        <button onclick="stringSearch()">Check Word!</button>
+        <p id="checkWord"></p>
+
+            <!--Extract File Extension-->
+        <h2>Extract File Extension</h2>
+        <input type="file" id="input15" placeholder="Enter file name (example: photo.jpg)">
+        <button onclick="stringSearch()">Get Extension</button>
+        <p id="getExtension"></p>
+
+            <!--URL Validation-->
+        <h2>URL Validation</h2>
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="stringSearch()">validates</button>
+        <p id="validationURL"></p>
+
+            <!--Count how many times 'a' appears-->
+        <h2>Count how many times 'a' appears</h2>
+        <input type="text" id="input16" placeholder="Enter text">
+        <button onclick="stringSearch()">Count 'a'</button>
+        <p id="countA"></p>
+
+            <!--Replace Banned Keyword With '*'-->
+        <h2>Replace Banned Keyword with '*'</h2>
+        <input type="text" id="input17" placeholder="Enter message">
+        <input type="text" id="key" placeholder="Enter banned keyword">
+        <button onclick="stringSearch()">Filter</button>
+        <p id="filter"></p>
+
+        <script>
+            function stringSearch() {
+                    //Check if String contains a Word
+                let text13 = document.getElementById("input13").value;
+                let word1 = document.getElementById("input14").value;
+
+                let position = text13.search(word1);
+
+                if (position !== -1) {
+                    document.getElementById("checkWord").innerHTML = "✔ Word found in the string!";
+                }
+                else {
+                    document.getElementById("checkWord").innerHTML = "✘ Word NOT found.";
+                }
+                    //Extract File Extension
+                let text14 = document.getElementById("input15").value;
+                let text15 = text14.search(/\.[^.]+$/);
+
+                if (text15 !== -1) {
+                    let extension = text14.substring(text15 + 1);
+                    document.getElementById("getExtension").innerHTML = "Extension:" + extension;
+                }
+                else {
+                    document.getElementById("getExtension").innerHTML = "NO exension found"
+                }
+
+                    //URL Validation
+                let url = document.getElementById("urlInput").value;
+
+                let startsCorrect = url.search(/^https:\/\//) === 0;
+
+                let hasDot = url.search(/\./) !== -1;
+
+                let hasSpace = url.search(/ /) !== -1;
+
+                if (startsCorrect && hasDot && !hasSpace) {
+                    document.getElementById("validationURL").innerHTML = "✔ Valid URL!"
+                } 
+                else {
+                    document.getElementById("validationURL").innerHTML = "✘ Invalid URL!"
+                }
+
+                    //count how may times 'a' appears
+                let text16 = document.getElementById("input16").value;
+                let total = stringSearchA(text16);
+                document.getElementById("countA").innerHTML = "Total 'a' found :" + total;
+
+                    //Relpace Banned words with Keywords
+                let text17 = document.getElementById("input17").value;
+                let keyword = document.getElementById("key").value;
+
+                let posi = text17.search(keyword);
+
+                if (posi !== -1) { 
+                    let filtered = text17.substring(0, posi) + "*" + text17.substring(posi + keyword.length);
+
+                    document.getElementById("filter").innerHTML = filtered;
+                }
+                else {
+                    document.getElementById("filter").innerHTML = "Keyword not found!"
+                }
+            }
+
+            function stringSearchA(str1, count = 0) {
+                    //count how may times 'a' appears
+                let pos = str1.search(/a/i);
+
+                if (pos === -1) {
+                    return count;
+                }
+
+                return stringSearchA(str1.substring(pos + 1), count + 1);
+            }
+
+        </script>
+    </div>
+
+   
+</body>
+
+</html>

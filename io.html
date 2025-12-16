@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <button onclick="add()">add</button>
+    <h2 id="output"></h2>
+    <button onclick="add()">add</button>
+
+    <script>
+        function add() {
+            let n1 = document.getElementById('a').value
+            let n2 = document.getElementById('b').value
+            let c = Number(n1) + Number(n2)
+            document.getElementById('output').innerHTML = c
+        }
+    </script>
+
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <button onclick="sub()">sub</button>
+    <h2 id="output"></h2>
+
+    <script>
+        function sub() {
+            let n3 = document.getElementById('a').value
+            let n4 = document.getElementById('b').value
+            let f = Number(n3) - Number(n4)
+            document.getElementById('output').innerHTML = f
+        }
+    </script>
+
+    <input type="text" id="n1" placeholder="Enter number 1">
+    <input type="text" id="n2" placeholder="Enter number 2"><br><br>
+
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Subtract</button>
+    <button onclick="mul()">Multiply</button>
+    <button onclick="div()">Divide</button>
+
+    <h2 id="output"></h2>
+
+    <script>
+
+        function add() {
+            let a = Number(document.getElementById('n1').value);
+            let b = Number(document.getElementById('n2').value);
+            document.getElementById('output').innerHTML = "Result: " + (a + b);
+        }
+
+        function sub() {
+            let a = Number(document.getElementById('n1').value);
+            let b = Number(document.getElementById('n2').value);
+            document.getElementById('output').innerHTML = "Result: " + (a - b);
+        }
+
+        function mul() {
+            let a = Number(document.getElementById('n1').value);
+            let b = Number(document.getElementById('n2').value);
+            document.getElementById('output').innerHTML = "Result: " + (a * b);
+        }
+
+        function div() {
+            let a = Number(document.getElementById('n1').value);
+            let b = Number(document.getElementById('n2').value);
+
+            if (b === 0) {
+                document.getElementById('output').innerHTML = "Cannot divide by zero!";
+            } else {
+                document.getElementById('output').innerHTML = "Result: " + (a / b);
+            }
+        }
+
+    </script>
+
+    <h2>Simple Calculator (Return Value Functions)</h2>
+
+    <input type="text" id="n1">
+    <input type="text" id="n2"><br><br>
+
+    <button onclick="showAdd()">Add</button>
+    <button onclick="showSub()">Subtract</button>
+    <button onclick="showMul()">Multiply</button>
+    <button onclick="showDiv()">Divide</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+
+        // Functions that return values
+        function add(a, b) {
+            return a + b;
+        }
+
+        function sub(c, d) {
+            return a - b;
+        }
+
+        function mul(e, f) {
+            return a * b;
+        }
+
+        function div(g, h) {
+            if (b === 0) {
+                return "Cannot divide by zero!";
+            }
+            return a / b;
+        }
+
+        // Functions to display results
+
+        function showAdd() {
+            let a = Number(document.getElementById("n1").value);
+            let b = Number(document.getElementById("n2").value);
+            document.getElementById("result").innerHTML = "Result: " + add(a, b);
+        }
+
+        function showSub() {
+            let c = Number(document.getElementById("n1").value);
+            let d = Number(document.getElementById("n2").value);
+            document.getElementById("result").innerHTML = "Result: " + sub(c, d);
+        }
+
+        function showMul() {
+            let e = Number(document.getElementById("n1").value);
+            let f = Number(document.getElementById("n2").value);
+            document.getElementById("result").innerHTML = "Result: " + mul(e, f);
+        }
+
+        function showDiv() {
+            let g = Number(document.getElementById("n1").value);
+            let h = Number(document.getElementById("n2").value);
+            document.getElementById("result").innerHTML = "Result: " + div(g, h);
+        }
+
+    </script>
+
+    <h1>My First JavaScript</h1>
+
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = Date()">
+        Click me to display Date and Time.</button>
+
+    <p id="demo1"></p>
+
+    <h2>What Can JavaScript Do?</h2>
+
+    <p>JavaScript can change HTML attribute values.</p>
+
+    <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+    <button onclick="document.getElementById('myImage').src='buld.gif'">Turn on the light</button>
+
+    <img id="myImage" src="./buld.gif" style="width:100px">
+
+    <button onclick="document.getElementById('myImage').src='buld.gif'">Turn off the light</button>
+
+    <!--EVEN NUMBERS-->
+    <div>
+        <h2>Even Numbers from 1 to 50</h2>
+        <p id="output1"></p>
+
+        <script>
+            let text = "";
+            for (let i = 1; i <=50; i++) {
+                if (i === 3) { continue; }
+                    text += i + "," ;
+                }
+
+            document.getElementById("output1").innerHTML = text;
+        </script>
+    </div>
+        <!--FIBONACCI SERIES-->
+    <div>
+        <h2>Fibonacci Series</h2>
+        <p id="print"></p>
+
+        <script>
+            let n1 = 0;
+            let n2 = 1;
+            let series = n1 + " " + n2 + " ";
+            for (let i=3; i <=10; i++) {
+                let next = n1 + n2;
+                series += next + " ";
+                n1 = n2
+                n2 = next;
+            }
+
+            document.getElementById("print").innerHTML = series;
+        </script>
+    </div>
+
+    <!--Sum And Multiply-->
+
+    <div>
+        <h2>Sum of Multiples of 3 and under 100</h2>
+        <p id="print1"></p>
+
+        <script>
+            let sum = 0;
+            for (let i = 1; i < 100; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    sum += i;
+                }
+            }
+            document.getElementById("print1").innerHTML = "output: " + sum;
+        </script>
+    </div>
+
+    
+
+
+</body>
+
+</html>

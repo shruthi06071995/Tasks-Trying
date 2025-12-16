@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Check if String Contains a Word</h2>
+
+    <input type="text" id="mainStr" placeholder="Enter main string"><br><br>
+    <input type="text" id="searchWord" placeholder="Enter word to search"><br><br>
+
+    <button onclick="checkWord()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkWord() {
+            let text = document.getElementById("mainStr").value.toLowerCase();
+            let word = document.getElementById("searchWord").value.toLowerCase();
+
+            // Check if the word exists in the string
+            if (text.includes(word)) {
+                document.getElementById("result").innerHTML = "The word is found!";
+            } else {
+                document.getElementById("result").innerHTML = "The word is NOT found.";
+            }
+        }
+    </script>
+
+    <div>
+        <h2>URL Validation</h2>
+
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="validateURL()">Validate</button>
+
+        <p id="output"></p>
+
+        <script>
+            function validateURL() {
+                let url = document.getElementById("urlInput").value;
+
+                // Rule 1: Must start with https:// 
+                let startsCorrect = url.search(/^https:\/\//) === 0;
+
+                // Rule 2: Must include at least one dot "."
+                let hasDot = url.search(/\./) !== -1;
+
+                // Rule 3: Must NOT contain spaces
+                let hasSpace = url.search(/ /) !== -1;
+
+                if (startsCorrect && hasDot && !hasSpace) {
+                    document.getElementById("output").innerHTML = "✔ Valid URL!";
+                } else {
+                    document.getElementById("output").innerHTML = "✘ Invalid URL!";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h2>Count how many times 'a' appears</h2>
+
+        <input type="text" id="textInput" placeholder="Enter text">
+        <button onclick="countA()">Count</button>
+
+        <p id="resulta"></p>
+
+        <script>
+            function countOccurrences(str, count = 0) {
+                // Search for "a" (only string, no regex)
+                let pos = str.search("a");
+
+                if (pos === -1) {
+                    return count;  // No more "a" found
+                }
+
+                // Continue searching after the found "a" (recursion)
+                return countOccurrences(str.substring(pos + 1), count + 1);
+            }
+
+            function countA() {
+                let text = document.getElementById("textInput").value;
+                let result = countOccurrences(text);
+                document.getElementById("resulta").innerHTML = "Total 'a' found: " + result;
+            }
+        </script>
+
+    </div>
+
+    <div>
+        <h2>Replace Banned Keyword with "*"</h2>
+
+        <input type="text" id="msg" placeholder="Enter message">
+        <input type="text" id="key" placeholder="Enter banned keyword">
+        <button onclick="filterMessage()">Filter</button>
+
+        <p id="output2"></p>
+
+        <script>
+            function filterMessage() {
+                let message = document.getElementById("msg").value;
+                let keyword = document.getElementById("key").value;
+
+                // Find keyword position using search()
+                let pos = message.search(keyword);
+
+                if (pos !== -1) {
+                    // Build filtered message without using replace()
+                    let filtered =
+                        message.substring(0, pos) +     // before keyword
+                        "*" +                           // replacement
+                        message.substring(pos + keyword.length); // after keyword
+
+                    document.getElementById("output2").innerHTML = filtered;
+                } else {
+                    document.getElementById("output2").innerHTML = "Keyword not found!";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <!DOCTYPE html>
+        <html>
+
+        <body>
+
+            <h2>Increase / Decrease Using ONE Button</h2>
+
+            <input type="text" id="numInput" placeholder="Enter a number">
+
+            <button onclick="updateValue()">Update</button>
+
+            <p id="result"></p>
+
+            <script>
+                let toggle = true;  // true = increase, false = decrease
+
+                function updateValue() {
+                    let value = document.getElementById("numInput").value;
+                    let num = Number(value);
+
+                    if (toggle) {
+                        num = num + 1;      // Increase
+                    } else {
+                        num = num - 1;      // Decrease
+                    }
+
+                    toggle = !toggle;        // Switch between increase & decrease
+
+                    document.getElementById("result").innerHTML = "Value: " + num;
+                }
+            </script>
+
+        </body>
+
+        </html>
+        <h2>Increase / Decrease Number</h2>
+
+        <input type="text" id="numInput" placeholder="Enter a number">
+
+        <button onclick="increase()">Increase</button>
+        <button onclick="decrease()">Decrease</button>
+
+        <p id="result5"></p>
+
+        <script>
+            function increase() {
+                let value = document.getElementById("numInput").value;
+
+                let num = Number(value);   // Convert to number
+                num = num + 1;             // Increase
+
+                document.getElementById("result5").innerHTML = "Value: " + num;
+            }
+
+            function decrease() {
+                let value = document.getElementById("numInput").value;
+
+                let num = Number(value);   // Convert to number
+                num = num - 1;             // Decrease
+
+                document.getElementById("result5").innerHTML = "Value: " + num;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Increase / Decrease Using One Function</h2>
+
+        <input type="text" id="numInput" placeholder="Enter a number">
+
+        <button onclick="updateValue(1)">Increase</button>
+        <button onclick="updateValue(-1)">Decrease</button>
+
+        <p id="result6"></p>
+
+        <script>
+            function updateValue(change) {
+                let value = document.getElementById("numInput").value;
+
+                let num = Number(value);   // Convert to number
+
+                num = num + change;        // Add or subtract based on button clicked
+
+                document.getElementById("result6").innerHTML = "Value: " + num;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Increase / Decrease Using ONE Button using toggle</h2>
+
+        <input type="text" id="numInput9" placeholder="Enter a number">
+
+        <button onclick="updateValue()">Update</button>
+
+        <p id="result9"></p>
+
+        <script>
+            let toggle1 = true;  // true = increase, false = decrease
+
+            function updateValue() {
+                let value = document.getElementById("numInput9").value;
+                let num9 = Number(value);
+
+                if (toggle1) {
+                    num9 = num9 + 1;      // Increase
+                } else {
+                    num9 = num9 - 1;      // Decrease
+                }
+
+                toggle1 = !toggle1;        // Switch between increase & decrease
+
+                document.getElementById("result9").innerHTML = "Value: " + num9;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Increase Number Using Button</h2>
+
+        <input type="text" id="numInput" placeholder="Enter a number">
+
+        <button onclick="increase()">Increase</button>
+
+        <p id="result"></p>
+
+        <script>
+            function increase() {
+                let value = document.getElementById("numInput").value;
+
+                let num = Number(value);   // Convert to number
+
+                num = num + 1;             // Increase the value
+
+                document.getElementById("result").innerHTML = "Value: " + num;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Increase Number Multiple Times</h2>
+
+        <input type="text" id="numInput" placeholder="Enter a number">
+
+        <button onclick="increase()">Increase</button>
+
+        <script>
+            function increase() {
+                // Get value from input box
+                let value = document.getElementById("numInput").value;
+
+                // Convert to number
+                let num = Number(value);
+
+                // Increase the number by 1
+                num = num + 1;
+
+                // Update the input box with new value
+                document.getElementById("numInput").value = num;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>OWN</h2>
+        <input type="text" id="inputnum" placeholder="Enter some num">
+        <button onclick="values()">changes</button>
+        <p id="changes"></p>
+
+        <script>
+            function values() {
+                let value6 = document.getElementById("inputnum").value;
+                let num6 = Number(value6);
+                num6 += 1;
+
+                document.getElementById("values").value = num6;
+            }
+        </script>
+    </div>
+
+    <div>
+        <h2>Increase & Decrease Number</h2>
+
+        <input type="text" id="numInputt" placeholder="Enter a number">
+
+        <button onclick="changeValue1(1)">Increase</button>
+        <button onclick="changeValue1(-1)">Decrease</button>
+
+        <script>
+            function changeValue1(step) {
+                // Get value from input box
+                let value = document.getElementById("numInputt").value;
+
+                // Convert to number
+                let num7 = Number(value);
+
+                // Add or subtract
+                num7 = num7 + step;
+
+                // Update input box with new value
+                document.getElementById("numInputt").value = num7;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Swap Two Numbers (Without Third Variable)</h2>
+
+        <input type="text" id="a" placeholder="Enter first number">
+        <input type="text" id="b" placeholder="Enter second number">
+
+        <button onclick="swap()">Swap</button>
+
+        <p id="result10"></p>
+
+        <script>
+            function swap() {
+                let x = Number(document.getElementById("a").value);
+                let y = Number(document.getElementById("b").value);
+
+                // Swap without third variable
+                x = x + y;
+                y = x - y;
+                x = x - y;
+
+                document.getElementById("result10").innerHTML =
+                    "After Swap: A = " + x + ", B = " + y;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Undefined vs Not Defined (Using Number Method)</h2>
+
+        <button onclick="showResult()">Show Result</button>
+
+        <p id="output5"></p>
+
+        <script>
+            function showResult() {
+
+                let a;  // declared but not assigned → undefined
+                let result5 = "";
+
+                // a is undefined
+                result5 += "Value of a: " + a + "<br>";
+                result5 += "Number(a): " + Number(a) + "<br><br>";  // Number(undefined) = NaN
+
+                try {
+                    result5 += "Value of b: " + b + "<br>";  // b is NOT defined → error
+                } catch (error) {
+                    result5 += "Error for b: " + error + "<br>";       // shows not defined error
+                }
+
+                document.getElementById("output5").innerHTML = result5;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Random 4-Digit Number</h2>
+
+        <button onclick="generateNumber()">Generate</button>
+
+        <p id="gen"></p>
+
+        <script>
+            function generateNumber() {
+
+                // Generate random 4-digit number
+                let randomValue = Math.floor(1000 + Math.random() * 9000);
+
+                // Convert using Number() method
+                let finalNumber = Number(randomValue);
+
+                document.getElementById("gen").innerHTML =
+                    "Random 4-Digit Number: " + finalNumber;
+            }
+        </script>
+    </div>
+    <div>
+        <h2>Random 4-Digit OTP</h2>
+
+        <button onclick="generateOTP()">Get OTP</button>
+
+        <p id="otpResult"></p>
+
+        <script>
+            function generateOTP() {
+
+                // Generate 4-digit OTP
+                let otpValue = Math.floor(1000 + Math.random() * 9000);
+
+                // Convert using Number()
+                let finalOTP = Number(otpValue);
+
+                document.getElementById("otpResult").innerHTML =
+                    "Your OTP is: " + finalOTP;
+            }
+        </script>
+
+    </div>
+    <div>
+        <h2>Auto-Changing OTP (Every 1 Second)</h2>
+
+        <p id="otpResult" style="font-size:24px; font-weight:bold;"></p>
+
+        <script>
+            function generateAutoOTP() {
+
+                setInterval(function () {
+
+                    // Generate 4-digit OTP
+                    let otpValue = Math.floor(1000 + Math.random() * 9000);
+
+                    // Convert to number (using Number() method)
+                    let finalOTP = Number(otpValue);
+
+                    // Display OTP
+                    document.getElementById("otpResult").innerHTML =
+                        "OTP: " + finalOTP;
+
+                }, 1000); // refresh every 1 second
+            }
+
+            // Start the OTP generation automatically
+            generateAutoOTP();
+        </script>
+    </div>
+    <div>
+        <h2>Check Integer or Float</h2>
+
+        <input type="text" id="numInput1" placeholder="Enter a number">
+
+        <button onclick="checkNumber()">Check</button>
+
+        <p id="resul"></p>
+
+        <script>
+            function checkNumber() {
+
+                // Convert input to number using Number() method
+                let value = Number(document.getElementById("numInput1").value);
+
+                let resultText = "";
+
+                // Check if integer or float
+                if (Number.isInteger(value)) {
+                    resultText = "The number is an INTEGER.";
+                } else {
+                    resultText = "The number is a FLOAT.";
+                }
+
+                document.getElementById("resul").innerHTML = resultText;
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

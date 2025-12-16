@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Function</title>
+</head>
+
+<body>
+    <div>
+        <h1>NUMBER METHODS</h1>
+        <!--Increase/ Decrease Numbers-->
+        <h2>Increase/Decrease Number</h2>
+        <input type="text" id="inputnum1" placeholder="Enter number">
+        <button onclick="changeValue(1)">Increase</button>
+        <button onclick="changeValue(-1)">Decrease</button>
+
+        <!--Swap two numbers without Third Variable-->
+        <h2>Swap Two Numbers (Without Third Variable)</h2>
+        <input type="text" id="a" placeholder="Enter first number">
+        <input type="text" id="b" placeholder="Enter second number">
+        <button onclick="numberMethod()">Swap</button>
+        <p id="swap"></p>
+
+        <!--Remove Leading & Trailing Spaces-->
+        <h2>Remove Leading & Trailing Spaces (using Number Space)</h2>
+        <input type="text" id="inputnum2" placeholder="Enter number">
+        <button onclick="numberMethod()">RemoveSpace</button>
+        <p id="removingSpace"></p>
+
+        <!--Undefined vs not defined numbers-->
+        <h2>Undefined vs Not Defined Numbers</h2>
+        <button onclick="numberMethod()">Numbers</button>
+        <p id="dndNumbers"></p>
+
+        <!--Current Date-->
+        <h2>Current Date</h2>
+        <button onclick="numberMethod()">Show Date!</button>
+        <p id="showDate"></p>
+
+        <!--Date After 15 days-->
+        <h2>Date After 15 days</h2>
+        <button onclick="dateMethod()">Show Date!</button>
+        <p id="FutureDate"></p>
+
+        <!--Compare Two Dates & Days Between -->
+        <h2>Compare Two Dates & Days Between</h2>
+        <input type="date" id="date1" placeholder="Enter First Date:"><br><br>
+        <input type="date" id="date2" placeholder="Enter Second Date:"><br><br>
+        <button onclick="dateMethod()">Compare!</button>
+        <p id="compare"></p>
+
+        <!--Random Number Between Two Numbers-->
+        <h2>Random Number Between Two Numbers</h2>
+        <input type="text" id="minnum" placeholder="Enter number">
+        <input type="text" id="maxnum" placeholder="Enter number">
+        <button onclick="numberMethod()">Generate</button>
+        <p id="generate"></p>
+
+            <!--Random 4-digit Number-->
+        <h2>Random 4-Digit Number</h2>
+        <button onclick="generateNumber()">Generates!</button>
+        <p id="4-digi"></p>
+
+            <!--Check Integer or Float-->
+        <h2>Check Integer or Float</h2>
+        <input type="text" id="checknum" placeholder="Enter a number">
+        <button onclick="generateNumber()">Check Number!</button>
+        <p id="checkNumber"></p>
+
+        <script>
+
+            //Increase/ Decrease Numbers
+            function changeValue(step) {
+                let value = document.getElementById("inputnum1").value;
+
+                let num1 = Number(value);
+
+                num1 = num1 + step;
+
+                document.getElementById("inputnum1").value = num1;
+            }
+
+            function numberMethod() {
+                //Swap two numbers without Third Variable
+                let x = Number(document.getElementById("a").value);
+                let y = Number(document.getElementById("b").value);
+
+                x = x + y;
+                y = x - y;
+                x = x - y;
+
+                document.getElementById("swap").innerHTML = "After Swap: A =" + x + ", B =" + y;
+
+                //Remove Leading & Trailing Spaces
+                let text1 = document.getElementById("inputnum2").value;
+                let num2 = Number(text1);
+                let cleaned = String(num2);
+                document.getElementById("removingSpace").innerHTML = "Original: " + text1 + "<br>" + "After Removing Spaces :" + cleaned + "'";
+
+                //Undefined vs not defined numbers
+                let a1;
+                let text2 = "";
+
+                text2 += "Value of a :" + a1 + "<br>";
+                text2 += "Number(a): " + Number(a1) + "<br><br>";
+
+                try {
+                    text2 += "Value of b: " + b + "<br>";
+                }
+                catch (error) {
+                    text2 += "Error for b: " + error + "<br>";
+                }
+                document.getElementById("dndNumbers").innerHTML = text2;
+
+                //Show Current Date
+                let today = new Date();
+
+                let day = Number(today.getDate());
+                let month = Number(today.getMonth() + 1);
+                let year = Number(today.getFullYear());
+
+                let currentDate = day + "/" + month + "/" + year;
+
+                document.getElementById("showDate").innerHTML = "Current Date :" + currentDate;
+
+                //Random Number Between Two Numbers
+
+                let mini = Number(document.getElementById("minnum").value);
+                let maxi = Number(document.getElementById("maxnum").value);
+
+                let randomnum = Math.floor(Math.random() * (maxi - mini + 1)) + mini;
+
+                document.getElementById("generate").innerHTML = "Random Number: " + randomnum;
+
+                //Random Number Between Two Numbers
+                let min = Number(document.getElementById("min").value);
+                let max = Number(document.getElementById("max").value);
+
+                let randomNum = Math.floor(Math.random() * (max - min + 1)) + min ;
+
+                document.getElementById("generate").innerHTML = "Random Number: " + randomNum; 
+
+            }
+
+            function generateNumber() {
+
+                //Random 4-digit Number
+                let randomValue = Math.floor(1000 + Math.random() * 9000);
+
+                let finalNumber = Number(randomValue);
+
+                document.getElementById("4-digi").innerHTML = "Random 4-Digit Number:" + finalNumber;
+
+                //Check Integer or Float
+                let checkValue = Number(document.getElementById("checknum").value);
+
+                let resultText = "";
+
+                if (Number.isInteger(checkValue)) {
+                    resultText = "The number is an INTEGER.";
+                }
+                else {
+                    resultText = "The number is a FLOAT."
+                }
+                document.getElementById("checkNumber").innerHTML = resultText;
+            }
+
+            function dateMethod() {
+
+                //Date After 15 Days
+                let today1 = new Date();
+
+                today1.setDate(today1.getDate() + 15);
+
+                let day1 = today1.getDate();
+                let month1 = today1.getMonth() + 1;
+                let year1 = today1.getFullYear();
+
+                let futureDate = day1 + "/" + month1 + "/" + year1;
+
+                document.getElementById("FutureDate").innerHTML = "Date After 15 Days: " + futureDate;
+
+                //Compare Two Dates & Days Between
+                let d1 = new Date(document.getElementById("date1").value);
+                let d2 = new Date(document.getElementById("date2").value);
+
+                let output1 = "";
+
+                if (d1 < d2) {
+                    output1 += "First Date is Earlier <br>";
+                }
+                else if (d1 > d2) {
+                    output1 += "Second Date are the Earlier <br>";
+                }
+                else {
+                    output1 += "Both Dates are the Same <br>";
+                }
+
+                let diff = Math.abs(d2 - d1);
+
+                let daysBetween = diff / (1000 * 60 * 60 * 24);
+
+                output1 += "Days Between: " + daysBetween;
+
+                document.getElementById("compare").innerHTML = output1;
+
+                
+            }
+     
+        </script>
+    </div>
+
+</body>
+
+</html>

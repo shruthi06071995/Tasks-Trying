@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task On Loop, While, If, Else, Do while, For Loop</title>
+</head>
+
+<body>
+
+    <!--Even Numbers from 1-50-->
+
+    <div>
+        <h1>Using For Loop to Print Even Numbers from 1-50</h1>
+
+        <p id="result1"></p>
+
+        <script>
+            let output = "";
+
+            for (let i = 1; i <= 50; i++) {
+                if (i % 2 === 0) {
+                    output += i + ",";
+                }
+            }
+            document.getElementById("result1").innerText = output;
+        </script>
+    </div>
+
+    <!--Prime Number Checker-->    
+
+    <div>
+        <h1>Check the Prime Number or Not</h1>
+        <!--any whole number greater than 1 || that can only divide by 1 and itself-->
+        Enter the Number:<input type="text" id="num">
+        <button onclick="checkPrime()">Check prime or Not!</button>
+
+        <p id="result2"></p>
+
+        <script>
+            function checkPrime() {
+                let n = Number(document.getElementById("num").value);
+
+                if (n <= 100) {
+                    for (let i = 2; i <= 100; i++) {
+                        if (n % 1) {
+                            document.getElementById("result2").innerHTML = n + " is a prime number.";
+                            return;
+                        }
+                    }
+                }
+
+                for (let i = 2; i < n; i++) {
+                    if (n % i === 0) {
+                        document.getElementById("result2").innerHTML = n + " is NOT a prime number.";
+                        break;
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <!--Star Pattern-->
+
+    <div>
+        <h1>Print Star in CONSOLE Star in Triangle Pattern</h1>
+
+        <script>
+            let rows = 6; // number of rows as per your wish
+
+            for (let i = 1; i <= rows; i++) {
+                let stars = "";
+                for (let j = 1; j <= i; j++) {
+                    stars += "*";
+                }
+                console.log(stars);
+            }
+        </script>
+    </div>
+
+    <!--Fibonacci Series-->
+
+    <div>
+        <h1>Fibonacci Series</h1> <!--sequence of number where each number sum of two preceding-->
+
+        <p id="result3"></p> <!--usually starts with o and 1 F(n)= F(n-1) + F(n-2)-->
+
+        <script>
+            let n = 10;     //as our wish how many numbers we want to print
+            let a = 0, b = 1;
+            let fibOutput = a + " " + b + " ";
+
+            for (let i = 2; i < n; i++) {
+                let c = a + b;
+                fibOutput += c + " , ";
+                a = b;
+                b = c;
+            }
+            document.getElementById("result3").innerText = fibOutput;
+        </script>
+    </div>
+
+    <!--Factorial Value Calculator-->
+
+    <div>
+        <h1>Factorial Values Calculator</h1> <!--Positive integers less than or equal to that number-->
+
+        Enter the Number:
+        <input id="n" type="text">
+        <button onclick="fact()">Calculate</button>
+
+        <p id="out"></p>
+
+        <script>
+            function fact() {
+                let n = Number(document.getElementById("n").value);
+                let f = 1;
+                let i = 1;
+
+                while (i <= n) {
+                    f *= i;
+                    i++;
+                }
+
+                document.getElementById("out").innerHTML = "Factorial: " + f;
+            }
+        </script>
+    </div>
+
+    <!--Count Down Values-->
+
+    <div>
+        <h1>Count Down Values</h1>
+        <input type="text" id="Count">
+        <button onclick="countDown()">Start Countdown</button>
+
+        <p id="output6"></p>
+
+        <script>
+            function countDown() {
+                let n = document.getElementById("Count").value;
+                let result = "";
+
+                while (n >= 0) {
+                    result += n + " ";
+                    n--;
+                }
+                document.getElementById("output6").innerHTML = result;
+            }
+        </script>
+    </div>
+
+    <div>
+        <h1>Number Enter until entered 0 (while loop)</h1>
+        <input type="text" id="num1">
+        <button onclick="askNumber()">Enter Number</button>
+
+        <p id="result6"></p>
+
+        <script>
+            let output1 = "";
+
+            function askNumber() {
+                let n = document.getElementById("num1").value;
+
+                if (n == 0) {
+                    output1 += "You entered 0. Program stopped.";
+                    document.getElementById("result6").innerHTML = output1;
+                } else {
+                    output1 += "You entered: " + n + "<br>";
+                    document.getElementById("result6").innerHTML = output1;
+                }
+
+                document.getElementById("num1").value = "";
+            }
+        </script>
+
+    </div>
+
+    <!--Sum of Multiples of 3 and 5 below 100-->
+
+    <div>
+        <h1>Sum Of Multiples</h1> <!--sum of all multiples of 3 and 5 below 100-->
+
+        <p id="result4"></p>
+        <script>
+            let sum = 0;
+
+            for (let i = 0; i < 100; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    sum += i;
+                }
+            }
+
+            document.getElementById("result4").innerHTML = "Sum of multiples of 3 and 5 below 100 is: " + sum;
+        </script>
+    </div>
+
+    <!--Amstrong Number Checker-->
+
+    <div>
+        <h1>Amstrong Number Checker</h1>
+        <input type="text" id="num">
+        <button onclick="checkAmstrong()">Check!</button>
+
+        <p id="result5"></p>
+
+        <script>
+            function checkAmstrong() {
+
+                let n = document.getElementById("num").value;
+                let temp = n;
+                let sum = 0;
+                let digits = n.length;
+
+                for (let i = 0; i < digits; i++) {
+                    let d = n[i];
+                    sum += d ** digits;
+                }
+                if (sum == n) {
+                    document.getElementById("result5").innerHTML = n + "is an Amstrong Number"
+                }
+                else {
+                    document.getElementById("result5").innerHTML = n + "is not an Amstrong Number"
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <!--Input Number And Reverse that Number-->
+
+        <h1>Input a Number and Reverse that Number</h1>
+
+        <input type="text" id="givenumbers">
+        <button onclick="reverseNumbers()">Reverse</button>
+        <p id="result7"></p>
+
+        <script>
+            function reverseNumbers() {
+                let number = document.getElementById("givenumbers").value;
+                let reverse = "";
+                let i = number.length - 1;
+
+                while (i >= 0){
+                    reverse += n[i];
+                    i--;
+                }
+                document.getElementById("result7").innerHTML = "Reversed Number:" + reverse;
+                console.log(reverse)
+            }
+        </script>
+    </div>
+    
+</body>
+
+</html>

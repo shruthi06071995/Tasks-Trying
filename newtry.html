@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Country select validation</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 20px;
+        }
+
+        .error {
+            color: #b00020;
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        .invalid {
+            outline: 2px solid #b00020;
+            border-radius: 4px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        select {
+            padding: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Choose your country</h2>
+
+    <form id="myForm" novalidate>
+        <label for="country">Country</label><br>
+        <select id="country" name="country">
+            <option value="">-- Select country --</option>
+            <option value="IN">India</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+            <!-- add more countries as needed -->
+        </select>
+
+        <div id="message" role="alert" aria-live="polite"></div>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('myForm');
+        const country = document.getElementById('country');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', function (e) {
+            // Clear previous states
+            message.textContent = '';
+            country.classList.remove('invalid');
+
+            // Validation: ensure a non-empty value is chosen
+            if (!country.value) {
+                e.preventDefault(); // stop form submission
+                country.classList.add('invalid');
+                message.className = 'error';
+                message.textContent = 'Please select a country before submitting.';
+                // optionally move focus to the select for accessibility:
+                country.focus();
+                return false;
+            }
+
+            // If valid, show a success message (or let the form submit)
+            e.preventDefault(); // remove if you want the form to actually submit
+            message.className = 'success';
+            message.textContent = 'Form submitted successfully. Selected country: ' + country.options[country.selectedIndex].text;
+        });
+    </script>
+
+    <p>Enter Postal Code:</p>
+
+    <input type="text" id="pin">
+    <button onclick="checkPin()">Check</button>
+
+    <p id="code1"></p>
+
+    <script>
+        function checkPin() {
+            var p = document.getElementById("pin").value;
+
+            // Check: only numbers and exactly 6 digits
+            if (/^[0-9]{6}$/.test(p)) {
+                document.getElementById("code1").innerHTML = "Valid Postal Code";
+            } else {
+                document.getElementById("code1").innerHTML = "Invalid Postal Code";
+            }
+        }
+    </script>
+
+    <div>
+        <h4>Postal Code</h4>
+        <input type="text" id="pin">
+        <p id="code"></p>
+        <button onclick="userForm()">submit</button>
+
+        <script>
+            function userForm() {
+                //other validations...
+
+                //postal code
+                var post = document.getElementById("pin").value;
+
+                // Check: only numbers and exactly 6 digits
+                if (/^[0-9]{6}$/.test(post)) {
+                    document.getElementById("code").innerHTML = "Valid Postal Code";
+                } else {
+                    document.getElementById("code").innerHTML = "Invalid Postal Code";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h1>File Choosen</h1>
+        <input type="file" id="fileInput">
+        <p id="fileName"></p>
+        <button onclick="validateFileName(document.getElementById('fileInput'), 2)">Upload</button>
+
+        <script>
+            function validateFileName(fileInput, maxSizeMB) {
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const fileSizeKB = file.size / 1024; // Size in kilobytes
+                    const fileSizeMB = fileSizeKB / 1024; // Size in megabytes
+
+                    if (fileSizeMB > maxSizeMB) {
+                        alert(`File size exceeds the limit of ${maxSizeMB}MB.`);
+                        fileInput.value = '';
+                        return false;
+                    }
+                }
+                return true;
+            }
+        </script>
+    </div>
+
+    <div>
+        <h1>File Choosen for Display</h1>
+        <input type="file" id="fileInput1">
+        <p id="fileName1"></p>
+        <button onclick="displayFileName()">Upload</button>
+
+        <script>
+            function displayFileName() {
+                const fileInput = document.getElementById('fileInput1');
+                const fileNameDisplay = document.getElementById('fileName1');
+
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    fileNameDisplay.textContent = `Selected file: ${file.name}`;
+                } else {
+                    fileNameDisplay.textContent = 'No file selected.';
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <p>Select a file:</p>
+
+        <input type="file" id="myfile">
+        <button onclick="validateFile()">Submit</button>
+
+        <p id="result7"></p>
+
+        <script>
+            function validateFile() {
+                var fileInput = document.getElementById("myfile");
+
+                if (fileInput.files.length === 0) {
+                    document.getElementById("result7").innerHTML = "Please choose a file.";
+                } else {
+                    document.getElementById("result7").innerHTML = "File selected successfully!";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <p>Enter Date of Birth:</p>
+
+        <input type="date" id="dob">
+        <button onclick="checkDOB()">Check</button>
+
+        <p id="result"></p>
+
+        <script>
+            function checkDOB() {
+                var dob = document.getElementById("dob").value;
+
+                if (dob === "") {
+                    document.getElementById("result").innerHTML = "Please select your date of birth.";
+                    return;
+                }
+
+                var dobDate = new Date(dob);
+                var today = new Date();
+
+                if (dobDate > today) {
+                    document.getElementById("result").innerHTML = "DOB cannot be in the future!";
+                } else {
+                    document.getElementById("result").innerHTML = "Valid DOB.";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h3>Address</h3>
+        <input type="text" id="address" placeholder="address">
+        <p id="add"></p>
+        <button onclick="userForm()">Submit</button>
+
+        <script>
+            function userForm() {
+
+                // Get the value from an input field with the ID 'address-line-1'
+                const addressLine1Input = document.querySelector('#address-line-1');
+                const addressLine1Value = addressLine1Input.value;
+
+                // Get the value from an input field with the name attribute 'postalCode'
+                const postalCodeInput = document.querySelector('input[name="postalCode"]');
+                const postalCodeValue = postalCodeInput.value;
+
+            }
+        </script>
+    </div>
+
+    <div>
+        <p>Enter Postal Code:</p>
+
+        <input type="text" id="pin1">
+        <button onclick="checkPin()">Check</button>
+
+        <p id="res"></p>
+
+        <script>
+            function checkPin() {
+                var post = document.getElementById("pin1").value;
+
+                // Check: only numbers and exactly 6 digits
+                if (/^[0-9]{6}$/.test(post)) {
+                    document.getElementById("res").innerHTML = "Valid Postal Code";
+                } else {
+                    document.getElementById("res").innerHTML = "Invalid Postal Code";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <p>Select a file:</p>
+
+        <input type="file" id="myfile">
+        <button onclick="checkFile()">Submit</button>
+
+        <p id="result"></p>
+
+        <script>
+            function checkFile() {
+                var fileInput = document.getElementById("myfile");
+
+                if (fileInput.files.length === 0) {
+                    document.getElementById("result").innerHTML = "Please select a file.";
+                } else {
+                    document.getElementById("result").innerHTML = "File selected successfully!";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h3>File Upload Validation</h3>
+
+        <input type="file" id="fileInput">
+        <br><br>
+
+        <button onclick="uploadFile()">Upload</button>
+        <button onclick="submitForm()">Submit</button>
+
+        <p id="msg" style="color:red;"></p>
+
+        <script>
+            let fileSelected = false;
+
+            // Upload button
+            function uploadFile() {
+                let file = document.getElementById("fileInput").value;
+
+                if (file === "") {
+                    document.getElementById("msg").innerHTML = "Please choose a file!";
+                    fileSelected = false;
+                }
+                else {
+                    document.getElementById("msg").innerHTML = "File uploaded successfully!";
+                    document.getElementById("msg").style.color = "green";
+                    fileSelected = true;
+                }
+            }
+
+            // Submit button
+            function submitForm() {
+                if (!fileSelected) {
+                    document.getElementById("msg").innerHTML = "Upload a file before submitting!";
+                    document.getElementById("msg").style.color = "red";
+                }
+                else {
+                    document.getElementById("msg").innerHTML = "Form submitted!";
+                    document.getElementById("msg").style.color = "blue";
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h3>File Upload Validation</h3>
+
+        <input type="file" id="fileInput"><br><br>
+
+        <button onclick="checkFile()">Upload</button>
+        <button onclick="submitForm()">Submit</button>
+
+        <p id="result" style="color:red;"></p>
+
+        <script>
+            let isUploaded = false;
+
+            // Upload validation
+            function checkFile() {
+                let file = document.getElementById("fileInput").files.length;
+
+                if (file === 0) {
+                    document.getElementById("result").innerHTML = "Please select a file!";
+                    document.getElementById("result").style.color = "red";
+                    isUploaded = false;
+                } else {
+                    document.getElementById("result").innerHTML = "File uploaded successfully!";
+                    document.getElementById("result").style.color = "green";
+                    isUploaded = true;
+                }
+            }
+
+            // Submit validation
+            function submitForm() {
+                if (isUploaded) {
+                    document.getElementById("result").innerHTML = "Form submitted!";
+                    document.getElementById("result").style.color = "blue";
+                } else {
+                    document.getElementById("result").innerHTML = "Upload a file before submitting!";
+                    document.getElementById("result").style.color = "red";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
