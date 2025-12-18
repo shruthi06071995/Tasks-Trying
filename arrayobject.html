@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY OBJECT</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: 'Jen',
+            age: 22,
+            city: 'New York'
+        };
+
+        for (const key in person) {
+            // Use bracket notation to access the property value dynamically
+            console.log(`${key}: ${person[key]}`);
+        }
+    </script>
+
+    <div>
+        <script>
+            const user = { name: 'Jen', age: 22 };
+            const cloneUsr = { ...user };
+            console.log(cloneUsr);
+            // Output: { name: 'Jen', age: 22 }
+
+        </script>
+    </div>
+
+    <div>
+        <script>
+            const user1 = { name: 'Jen', age: 22 };
+            const user2 = { city: 'New York', age: 30 }; // age will be overwritten
+
+            const mergedUser = { ...user1, ...user2 };
+            console.log(mergedUser);
+            // Output: { name: 'Jen', age: 30, city: 'New York' }
+
+        </script>
+    </div>
+</body>
+
+</html>
