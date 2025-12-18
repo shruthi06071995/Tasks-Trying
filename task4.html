@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASKS ON NUMBER AND DATE</title>
+</head>
+
+<body>
+    <div>
+        <h2>DOB Validation (18 to 30 Years)</h2>
+
+        <label>Select Date of Birth:</label>
+        <input type="date" id="dob">
+
+        <button onclick="checkValue()">Check Age</button>
+
+        <p id="checkAge"></p>
+
+        <script>
+            function checkValue() {
+
+                let dobValue = document.getElementById("dob").value;
+
+                if (dobValue === "") {
+                    document.getElementById("checkAge").innerHTML = "Please select DOB";
+                    return;
+                }
+
+                let dob = new Date(dobValue);
+                let today = new Date();
+
+                // Calculate age
+                let age = Number(today.getFullYear() - dob.getFullYear());
+
+                // Adjust age if birthday not yet occurred this year
+                let monthDiff = today.getMonth() - dob.getMonth();
+                let dayDiff = today.getDate() - dob.getDate();
+
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                    age = age - 1;
+                }
+
+                // Validate age
+                if (age > 18 && age < 30) {
+                    document.getElementById("checkAge").innerHTML =
+                        "Valid Age ✔️ (Age: " + age + ")";
+                } else {
+                    document.getElementById("checkAge").innerHTML =
+                        "Invalid Age ❌ (Age: " + age + ")";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
