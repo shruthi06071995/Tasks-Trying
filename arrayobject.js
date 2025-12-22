@@ -310,7 +310,7 @@ switch (true) {
 
 let amt = 9000;
 
-switch(true) {
+switch (true) {
     case amt > 10000:
         console.log("Buy Android Mobile");
         break;
@@ -321,7 +321,7 @@ switch(true) {
         console.log("Buy Basic Mobile");
         break;
     default:
-        console.log("You cant't afford mobile phone now!");       
+        console.log("You cant't afford mobile phone now!");
 }
 
 //LOOPs
@@ -368,9 +368,123 @@ for(condition){
 
 let i = 15;
 
-while (i >= 1 ) {
-    if(i % 2 !== 0) {
-        console.log("Odd number using while loop :" + i );
+while (i >= 1) {
+    if (i % 2 !== 0) {
+        console.log("Odd number using while loop :" + i);
     }
     i--;
 }
+
+//For-in (Modern Javascript)
+//index 'key' is used in for-in
+const person1 = {       //objects
+    name: 'Ing',
+    age: 5,
+    sex: 'female',
+};
+
+for (let key in person1) {
+    console.log(key + " : " + person1[key]);
+}
+
+let colours = ['red', 'blue', 'black'];     //array
+
+for (let key in colours) {
+    console.log(colours[key]);
+
+}
+
+//For-Of (index are not required)
+
+let foods = ['Dosa', 'Poori', 'Parrota'];
+
+for (let food of foods) {
+    console.log("Foods :" + food);
+
+}
+
+//OOP (Object Oriented Programming)
+// let name1 = "Sangshi";
+// let ages = 25;
+// let intrest = ['Drawing', 'Painting', 'Designing'];
+// let address = {
+//     city: "placea",
+//     state: "oplala"
+// }
+
+// function greeting() {
+//     //let msg1 = "My name is " + name + ", I love" + intrest;
+//     //tilda method
+//     let msg1 = `My name is ${name1}, I love ${intrest}`;
+//     console.log(msg1);
+// }
+// //greeting();
+
+let person2 = {
+    name1: 'Sangshi',
+    ages: 25,
+    intrest: ['Drawing', 'Painting', 'Desinging'],
+    isAlive: true,
+    address: {
+        city: "placea",
+        state: "oplala",
+    },
+    greeting: function () {
+        let msg1 = `My name is ${this.name1}, I love ${this.intrest}`;
+        console.log(msg1);
+    }
+};
+person2.greeting();
+
+//Factory Functions
+function createPerson(name) {
+    return {
+        name2 : name, 
+        greeting() {
+            let msg2 = `My name is ${this.name2}`;
+            console.log(msg2);
+        }
+    };
+}
+let kim = createPerson("Kim"); 
+let ming = createPerson("Ming");
+kim.greeting();
+ming.greeting();
+
+//Constructor Function
+function Person3(name){
+    this.name3 = name;
+    this.greeting = function() {
+        console.log(`My name is ${this.name3}`);
+    }
+}
+let person4 = new Person3("Motu");
+person4.greeting();
+
+//Dynamic Object
+const person5 = {
+    name: "Lilly",
+}
+person5.age = 16;
+person5.greeting = function() {}
+
+delete person5.age;
+delete person5.name;
+
+console.log(person5);
+
+//CONSTRUCTOR PROPERTIES
+console.log(person4.constructor);
+
+// let x = {}; // -> let x = new Object () {} //=> object constructor
+// let name1 = "Lotus"; //-> new String("Lotus") => name literals
+// let age2 = 3 ; // -> new Number(3) => number literals
+// let isAlive = true; //-> new Boolean(true) => boolean literals
+
+//console.log(name1, age2, isAlive);
+
+ let name5 = new String("Lill");
+ let age5 = new Number (3);
+ let isAlive = new Boolean (true);
+
+ console.log(name5, age5, isAlive)

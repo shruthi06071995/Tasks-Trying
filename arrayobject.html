@@ -12,13 +12,13 @@
     <h1>JAVASCRIPT OBJECT AND ARRAY CONCEPT</h1>
     
     <script>
-        const person = {
+        let person = {
             name: 'Jen',
             age: 22,
             city: 'New York'
         };
 
-        for (const key in person) {
+        for (let key in person) {
             // Use bracket notation to access the property value dynamically
             console.log(`${key}: ${person[key]}`);
         }
@@ -26,8 +26,8 @@
 
     <div>
         <script>
-            const user = { name: 'Jen', age: 22 };
-            const cloneUsr = { ...user };
+            let user = { name: 'Jen', age: 22 };
+            let cloneUsr = { ...user };
             console.log(cloneUsr);
             // Output: { name: 'Jen', age: 22 }
 
@@ -36,10 +36,10 @@
 
     <div>
         <script>
-            const user1 = { name: 'Jen', age: 22 };
-            const user2 = { city: 'New York', age: 30 }; // age will be overwritten
+            let user1 = { name: 'Jen', age: 22 };
+            let user2 = { city: 'New York', age: 30 }; // age will be overwritten
 
-            const mergedUser = { ...user1, ...user2 };
+            let mergedUser = { ...user1, ...user2 };
             console.log(mergedUser);
             // Output: { name: 'Jen', age: 30, city: 'New York' }
         </script>
