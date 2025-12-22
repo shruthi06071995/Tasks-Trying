@@ -185,8 +185,8 @@ console.log("Selected Colour :" + " " + currentColor);
 //CONDITIONAL OPERATOR
 //IF STATEMENT
 
-let condition = true ;
-                                  // for multiple lines of code {} required
+let condition = true;
+// for multiple lines of code {} required
 if (condition) {                    // for single code {} not required, 
     console.log("Condition: True");
 }
@@ -207,12 +207,12 @@ else {
 //if, else
 let isRaining = false; // with both the comditions one is false so if runs
 //let isCloudy = true;
-let isCloudy = false ; // both the conditions are false else runs
+let isCloudy = false; // both the conditions are false else runs
 
 if (isRaining || isCloudy) {
     console.log("Don't forget to take Umberlla!");
 } else {
-    console.log("Enjoy the Weather!"); 
+    console.log("Enjoy the Weather!");
 }
 
 //if, else if, else using Greeting Application (Hours are used in 24hrs format)
@@ -232,3 +232,145 @@ else {
     console.log("Good Evening");   
 } */
 
+//let hrs = new Date();
+//let hour = hrs.getHours()
+
+let hour = new Date().getHours();
+
+if (hour >= 0 && hour <= 13) {
+    console.log("Good Morning");
+}
+else if (hour >= 13 && hour <= 17) {
+    console.log("Good Afterrnoon");
+}
+else {
+    console.log("Good Evening");
+}
+
+//console.log(hour.getHours());
+
+//SWITCH CASE
+
+// switch case and if condition has same condition but different situation changes
+// BAsic syntax for switch case
+/* switch(condition) {
+    case 1:
+        console.log("1");
+    case 2:
+        console.log("2");
+    default :
+    console.log("Default Behaviour");
+} */
+
+//Grade Feedback system
+/*let  grade = "U";
+
+switch(grade) {
+    case "S":
+        console.log("Super Grade");
+        break;
+    case "A":
+    case "B": //For satisfing multiple cases result can be given once
+        console.log("Excellent Grade");
+        break;
+    case "E":
+        console.log("Just Pass!");
+        break;
+    case "U":
+        console.log("Fail");
+        break;
+    default:
+        console.log("Unknown Grade!");      
+} */
+
+//Using Mark
+
+let mark = 99;
+//inside the switch the condition always should be true
+switch (true) {
+    case mark > 90:
+        console.log("Excellent!");
+        break;
+    case mark > 50:
+        console.log("Pass!");
+        break;
+    // algorithm should be in order otherwise expected result won't be shown
+    case mark < 50:
+        console.log("Fail!");
+        break;
+    default:
+        console.log("Unknown Grade");
+}
+
+//Example: Mobile buying suggestion 
+//If given saving amount is > 10k Buy Android Mobile
+//Else if given amount is > 60K Buy iPhone Mobile
+//Else if given amount is > 5 && < 10 Buy Basic Mobile 
+//Else Print "You can't afford mobile phone now!"
+
+let amt = 9000;
+
+switch(true) {
+    case amt > 10000:
+        console.log("Buy Android Mobile");
+        break;
+    case amt > 60000:
+        console.log("Buy iPhone Mobile");
+        break;
+    case amt > 5000 && amt < 10000:
+        console.log("Buy Basic Mobile");
+        break;
+    default:
+        console.log("You cant't afford mobile phone now!");       
+}
+
+//LOOPs
+/* -> for loop 
+-> While loop
+-> Do While loop
+-> For-in loop
+-> For-of loop */
+
+//For loop Syntax
+/* for(initialExpression; condition; step[inc/dec]) {
+    console.log("Number #1");
+} */
+
+/* for (let i = 1; i <= 5; i++) {
+    console.log("Number #"+ i);
+} */
+
+//Display only odd Numbers
+
+/* for(let i = 1; i <= 5; i++) {
+
+    if (i % 2 !==0) {
+        console.log("Odd Number #" + i); 
+    }
+} */
+//Reversing the loop 
+/*or(let i = 10; i >= 1; i--) {
+    if (i % 2 !== 0) {
+    console.log("Odd Number Reversed" + " " + i);
+    }
+} 
+
+While Loop
+taking out initialExpression and Step it has condition and inline to access first
+syntax:
+initialExpression
+for(condition){
+    if(inline condition){
+    console.log("output");
+    }
+    inc/dec;
+} */
+
+let i = 15;
+
+while (i >= 1 ) {
+    if(i % 2 !== 0) {
+        console.log("Odd number using while loop :" + i );
+    }
+    i--;
+}
