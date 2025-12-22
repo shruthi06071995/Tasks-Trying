@@ -220,7 +220,7 @@ if (isRaining || isCloudy) {
 //Else if hour is between 1PM(13) to 5PM(17) => Good Afternoon
 //Else hour is between 5PM(17) to 12AM(0) => Food Evening
 
-let hour = 5;
+/*let hour = 5;
 
 if(hour >= 0 && hour <= 13) {
     console.log("Good Morning");
@@ -229,6 +229,6 @@ else if(hour >= 13 && hour <= 17) {
     console.log("Good Afterrnoon");
 }
 else {
-    console.log("Good Evening");
-    
-}
+    console.log("Good Evening");   
+} */
+
