@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT TASK</title>
+</head>
+<body>
+<h1>Task on JAVASCRIPT</h1>
+<h3>Original JSON Object</h3>
+<script>
+let user = {
+  id: 1,
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874"
+  },
+  phone: "1-770-736-8031",
+  website: "hildegard.org",
+  company: {
+    name: "Romaguera-Crona"
+  }
+};
+</script>
+
+<h3>Access Value</h3>
+<script>
+document.write("Name: " + user.name + "<br>");
+document.write("City: " + user.address.city + "<br>");
+document.write("Company: " + user.company.name + "<br>");
+</script>
+
+<h3>Insert (Add new property using spread operator)</h3>
+<script>
+let newUser = {
+  ...user,
+  age: 30
+};
+
+document.write("Age Added: " + newUser.age + "<br>");
+</script>
+
+<h3>Update (Modify existing value using spread operator)</h3>
+<script>
+let updatedUser = {
+  ...user,
+  email: "leanne@gmail.com"
+};
+
+document.write("Updated Email: " + updatedUser.email + "<br>");
+</script>
+
+<h3>Update Nested Object (address city)</h3>
+<script>
+let updatedAddressUser = {
+  ...user,
+  address: {
+    ...user.address,
+    city: "Chennai"
+  }
+};
+
+document.write("Updated City: " + updatedAddressUser.address.city + "<br>");
+</script>
+
+<h3>Delete (Remove Property Using Spread Operator)</h3>
+<script>
+let { phone, ...userWithoutPhone } = user;
+
+document.write("Phone Removed<br>");
+document.write("Phone Value: " + userWithoutPhone.phone);
+</script>
+
+<h3>JSON conversion (Object ↔ JSON)</h3>
+<script>
+// Object to JSON
+let jsonData = JSON.stringify(user);
+document.write("<br>JSON String: " + jsonData);
+
+// JSON to Object
+let parsedData = JSON.parse(jsonData);
+document.write("<br>Parsed Name: " + parsedData.name);
+</script>
+
+
+<h1>TASK 2</h1>
+
+
+
+<script src="./task5.js"></script>
+</body>
+</html>
