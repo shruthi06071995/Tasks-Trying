@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRYING THEORY TOPICS</title>
+</head>
+<body>
+    <h3>ASYNCHRONOUS FUNCTION</h3>
+    <p>It is specialized function that allows a program to start a long-running task and continue executing other code without waiting for that task to finish.</p>
+    <p><u>It continous multi process execution. It does not make to wait one task running and other task to wait. <br> Simultanious execution</u></p>
+    <h6>A Real-Time example: Fetching Data from an API</h6>
+
+    <!--Basic Synchronous CallBack-->
+    <h3>Basic: Synchronous CallBack</h3>
+
+    <!-- Function Sequence -->
+    <h3>Function Sequence</h3>
+    <p>Javascript funcitons are executed in the sequence they are called.</p>
+    <p id="output"></p>
+
+    <script>
+        async function getUserData() {
+            try {
+                console.log("Fetching user data..."); //1. Immediate log
+
+                //The 'await' keyword pauses this function specifically,
+                //but the rest of the browser stays active and responsive.
+
+                const response = await fetch('jsonplaceholder.typicode.com');
+                
+                //convert the response to JSON
+                const user = await response.json();
+
+                console.log("User received:", user.name); //3. Logged once data arrives
+            } catch (error) {
+                console.error("Error fetching data:", error);  
+            }
+            getUserData();
+            console.log("This runs immediately, while the data is still being fetched!"); //2. Immediate log
+        }
+
+        //Basic: Synchronous callback
+        console.log("Start");
+
+        setTimeout(() => {
+            console.log("This runs after 2 seconds");//Anonymous callback function
+            
+        }, 2000);// the command in this log appears after 2 seconds
+        console.log("End");
+        // (setTimeout) is given to second log executes after the third log executes
+        //because of the Timeout funciton given with 2 seconds
+        
+    </script>
+</body>
+</html>
