@@ -11,6 +11,23 @@
     <p><u>It continous multi process execution. It does not make to wait one task running and other task to wait. <br> Simultanious execution</u></p>
     <h6>A Real-Time example: Fetching Data from an API</h6>
 
+    <!-- Default Flow -->
+    <h3>Default Flow</h3>
+    <p>Default flow executes code <b>Sequentially</b> (from top to bottom / from left to right).</p>
+    <p>In this example, x, y, and z are variables.</p>
+    <p id="flow"></p>
+
+    <!-- Conditional Control Flow -->
+    <h3>Conditional Control Flow</h3> 
+    <p>Conditions let you <b>make decision</b> using</p>
+    <p id="Control"></p>
+
+    <!-- Loops (Repetition Control Flow) -->
+    <h3>Loops (Repetition Control Flow)</h3>
+    <p>Loops let you <b>run code multiple times</b></p>
+    <p>for <br> while <br> do...while</p>
+    <p id="loop"></p>
+
     <!--Basic Synchronous CallBack-->
     <h3>Basic: Synchronous CallBack</h3>
 
@@ -18,6 +35,9 @@
     <h3>Function Sequence</h3>
     <p>Javascript funcitons are executed in the sequence they are called.</p>
     <p id="output"></p>
+
+    
+    
 
     <script>
         async function getUserData() {
@@ -51,6 +71,32 @@
         // (setTimeout) is given to second log executes after the third log executes
         //because of the Timeout funciton given with 2 seconds
         
+        //Default Flow
+        let x = 5;
+        let y = 6;
+        let z = x +y;
+
+        document.getElementById("flow").innerHTML = "The value of z is" + z;
+
+        //Condition Control Flow 
+        let age = 18;
+        let text1 = "Unknown"
+
+        if (age >= 18) {
+            text1 = "Adult";
+        } else {
+            text1 = "Minor";
+        }
+        document.getElementById("Control").innerHTML = "The group is " + text;
+
+        //For Loop
+        let text2 = "" ;
+
+        for (let i = 0; i < 5; i++) {
+            text2 += "The number is " + i + "<br>";
+        }
+        document.getElementById("loop").innerHTML = text2;
+
     </script>
 </body>
 </html>
