@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Show Python Students</title>
+</head>
+
+<body>
+
+    <h2>Display Python Students</h2>
+
+    <button onclick="showPythonStudents()">Show Python Students</button>
+
+    <p id="python"></p>
+
+    <!-- Active Students -->
+    <h2>Active Students</h2>
+
+    <button onclick="showActiveStudents()">Active Students!</button>
+    <div id="active"></div>
+
+    <!-- Student Fees in Ascending Order -->
+    <h2>Sort Students by Fees (Ascending Order)</h2>
+    <button onclick="studentFeesAscending()">Show Student Fees in Ascending Order</button>
+    <div id="ascendingorder"></div>
+
+    <script>
+        let studentData = `[
+  { "id": 1, "name": "Arun",  "course": "Python", "fees": 25000, "active": true },
+  { "id": 2, "name": "Divya", "course": "MERN",   "fees": 45000, "active": true },
+  { "id": 3, "name": "Kiran", "course": "Python", "fees": 30000, "active": false }
+]`;
+
+        let students2 = JSON.parse(studentData);
+
+        function showPythonStudents() {
+            let studentsOfPython = "";
+
+            let pythonStudents = students2.filter(student =>
+                student.course.toLowerCase() === "python"
+            );
+
+            if (pythonStudents.length > 0) {
+                pythonStudents.forEach(s => {
+                    studentsOfPython +=
+                        "ID: " + s.id + "<br>" +
+                        "Name: " + s.name + "<br>" +
+                        "Course: " + s.course + "<br>" +
+                        "Fees: " + s.fees + "<br>" +
+                        "Active: " + s.active + "<br><br>";
+                });
+            } else {
+                studentsOfPython = "No Python students found";
+            }
+
+            document.getElementById("python").innerHTML = studentsOfPython;
+        }
+
+        //Active Students
+        let students1 = JSON.parse(studentData);
+
+        function showActiveStudents() {
+            let activeStudents = "";
+
+            let studentsAreActive = students1.filter(student => student.active === true);
+
+            if (studentsAreActive.length > 0) {
+                studentsAreActive.forEach(s => {
+                    activeStudents +=
+                        "ID: " + s.id + "<br>" +
+                        "Name: " + s.name + "<br>" +
+                        "Course: " + s.course + "<br>" +
+                        "Fees: " + s.fees + "<br>" +
+                        "Active: " + s.active + "<br><br>";
+                });
+            } else {
+                activeStudents = "No active Students Found";
+            }
+            document.getElementById("active").innerHTML = activeStudents;
+        }
+
+        //Student Fees in Ascending Order
+        let students3 = [];
+
+
+        fetch("students3.json")
+            .then(res => res.json())
+            .then(data => {
+                students3 = data;
+            });
+
+        function studentFeesAscending() {
+
+            if (students3.length === 0) {
+                document.getElementById("ascendingorder").innerHTML = "Loading data... Please click again.";
+                return;
+            }
+
+            let sorted = [...students3].sort((a, b) => a.fees - b.fees);
+            let sortByFees = "";
+
+            sorted.forEach(s => {
+                sortByFees +=
+                    "ID: " + s.id + "<br>" +
+                    "Name: " + s.name + "<br>" +
+                    "Course: " + s.course + "<br>" +
+                    "Fees: " + s.fees + "<br>" +
+                    "Active: " + s.active + "<br><br>";
+            });
+
+            document.getElementById("ascendingorder").innerHTML = sortByFees;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -4,15 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To REach from Jason on Javascript</title>
+    <title>To Reach from Jason on Javascript</title>
 </head>
 
 <body>
     <h1>Javascript Using JASON Method</h1>
+    <h3>Search Student Details</h3>
     <input type="text" id="search" placeholder="Enter student name">
     <button onclick="searchStudent()">Search!</button>
     <p id="out"></p>
 
+    <!-- Display All Python Students -->
+    <h3>Display All Python Students</h3>
+    <button onclick="showPythonStudents()">Python Students!</button>
+    <p id="python"></p>
+
+    <!-- Active Students -->
+    <h3>Active Students</h3>
+    <button onclick="showActiveStudents()">Active Students!</button>
+    <div id="active"></div>
+
+    <!-- Student Fees in Ascending Order -->
+    <h3>Sort Students by Fees (Ascending Order)</h3>
+    <button onclick="sortByFees()">Sort By Fees!</button>
+    <div id="ascendFees"></div>
+
+    <!-- Student Fees in Descending Order -->
+    <h3>Sort Students by Fees (DescendingOrder)</h3>
+    <button onclick="sortByFeesdes()">Sort By Fees!</button>
+    <div id="descendFees"></div>
+
+    <!-- Update the Course of the Student -->
+    <h3>Update the Course of the Student</h3>
     
     <script src="./jasonreach.js"></script>
 </body>
