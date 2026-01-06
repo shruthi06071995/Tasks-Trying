@@ -35,8 +35,8 @@
 //JSON DATA
 let studentData = `[
     {"id": 1, "name": "Arun", "course": "Python", "fees": 25000, "active": true },
-    {"id": 2, "name": "Divya", "course": "MERN", "fees": 45000, "active": true },
-    {"id": 3, "name": "Monu", "course": "Java", "fees": 20000, "active": true },
+    {"id": 2, "name": "Divya", "course": "MERN", "fees": 45000, "active": false },
+    {"id": 3, "name": "Meena", "course": "Java", "fees": 20000, "active": true },
     {"id": 4, "name": "Hari", "course": "Python", "fees": 25000, "active": false }
 ]`;
 //Convert JSON to object
@@ -49,11 +49,10 @@ function searchStudent() {
 
     if (input === "") {
         document.getElementById("out").innerHTML = "Please Enter a Student name";
-        return;
-
     }
-    let search = students1.filter(students1 =>
-        students1.name === input
+    
+    let search = students1.filter(student =>
+        student.name.toLowerCase() === input
     );
 
     if (search.length > 0) {
@@ -173,6 +172,122 @@ function sortByFeesdes() {
     document.getElementById("descendFees").innerHTML = ascending;
 }
 
+//Update MERN Student
+let students6 = JSON.parse(studentData);
 
+function updateMERNStudents() {
+
+    students6 = students6.map(student => {
+        if (student.course === "MERN") {
+            return { ...student, active: true };
+        }
+        return student;
+    });
+
+    let MernStudent = "";
+    students6.forEach(s => {
+        MernStudent +=
+            "ID: " + s.id + "<br>" +
+            "Name: " + s.name + "<br>" +
+            "Course: " + s.course + "<br>" +
+            "Fees: " + s.fees + "<br>" +
+            "Active: " + s.active + "<br><br>";
+    });
+    document.getElementById("MERNS").innerHTML = MernStudent;
+}
+
+// Delete Student Detail From StudentData
+
+let students7 = JSON.parse(studentData);
+
+function deleteStudent() {
+
+    students7 = students7.filter(student => student.id !== 3);
+
+    let studentdel = "";
+
+    students7.forEach(s => {
+        studentdel +=
+            "ID: " + s.id + "<br>" +
+            "Name: " + s.name + "<br>" +
+            "Course: " + s.course + "<br>" +
+            "Fees: " + s.fees + "<br>" +
+            "Active: " + s.active + "<br><br>";
+    });
+    document.getElementById("delete").innerHTML = studentdel;
+}
+
+//Increase Student fees in search of name
+
+let students8 = JSON.parse(studentData);
+
+function increaseFees() {
+
+
+    //map() -> go through every item in an array and update only the ones we want
+    // without damaging the original structure.
+    students8 = students8.map(student => {
+        if (student.name.toLowerCase() === "meena") {
+            return { ...student, fees: student.fees + 5000 }; //... is used for all data to execute
+        }   //...(meaning: Take everything from this student and then change only)
+        return student;
+    });
+
+    let incFees = "";
+    students8.forEach(s => {
+        incFees +=
+            "ID: " + s.id + "<br>" +
+            "Name: " + s.name + "<br>" +
+            "Course: " + s.course + "<br>" +
+            "Fees: " + s.fees + "<br>" +
+            "Active: " + s.active + "<br><br>";
+    });
+    document.getElementById("feesInc").innerHTML = incFees;
+}
+
+//Filter and Sort MERN student by Name
+
+let students9 = JSON.parse(studentData);
+
+function showMERN() {
+
+    let mernstudents = students9
+        .filter(student => student.course === "MERN")
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+    let studentMern = "";
+    mernstudents.forEach(s => {
+        studentMern +=
+            "ID: " + s.id + "<br>" +
+            "Name: " + s.name + "<br>" +
+            "Course: " + s.course + "<br>" +
+            "Fees: " + s.fees + "<br>" +
+            "Active: " + s.active + "<br><br>";
+    });
+    document.getElementById("show").innerHTML = studentMern;
+}
+
+//All Students in Alphabetical Order
+
+let students10 = JSON.parse(studentData);
+
+function alpabetOrder() {
+
+    let sortedStudents = [...students10].sort((a, b) =>
+        a.name.localeCompare(b.name) //localeCompare -> compare two strings
+    );
+
+    let orderAlp = "";
+
+    sortedStudents.forEach(s => {
+        orderAlp +=
+            "ID: " + s.id + "<br>" +
+            "Name: " + s.name + "<br>" +
+            "Course: " + s.course + "<br>" +
+            "Fees: " + s.fees + "<br>" +
+            "Active: " + s.active + "<br><br>";
+    });
+    document.getElementById("order").innerHTML = orderAlp;
+}
 
 

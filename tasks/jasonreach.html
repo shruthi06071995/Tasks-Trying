@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Reach from Jason on Javascript</title>
+</head>
+
+<body>
+    <h1>Javascript Using JASON Method</h1>
+    <h3>Search Student Details</h3>
+    <input type="text" id="search" placeholder="Enter student name">
+    <button onclick="searchStudent()">Search!</button>
+    <p id="out"></p>
+
+    <!-- Display All Python Students -->
+    <h3>Display All Python Students</h3>
+    <button onclick="showPythonStudents()">Python Students!</button>
+    <p id="python"></p>
+
+    <!-- Active Students -->
+    <h3>Active Students</h3>
+    <button onclick="showActiveStudents()">Active Students!</button>
+    <div id="active"></div>
+
+    <!-- Student Fees in Ascending Order -->
+    <h3>Sort Students by Fees (Ascending Order)</h3>
+    <button onclick="sortByFees()">Sort By Fees!</button>
+    <div id="ascendFees"></div>
+
+    <!-- Student Fees in Descending Order -->
+    <h3>Sort Students by Fees (DescendingOrder)</h3>
+    <button onclick="sortByFeesdes()">Sort By Fees!</button>
+    <div id="descendFees"></div>
+
+    <!-- Update the Course of the Student -->
+    <h3>Update the Course of the Student ID = 1</h3>
+    <button onclick="updateCourse()">Update Course!</button>
+    <div id="courseUpdate"></div>
+
+    <!-- Update MERN Student -->
+    <h3>Update MERN Student Active = true</h3>
+    <button onclick="updateMERNStudents()">Update MERN Students</button>
+    <p id="MERNS"></p>
+
+    <!-- Delete Student Detail From StudentData -->
+    <h3>Delete Student Detail From StudentData ID = 3</h3>
+    <button onclick="deleteStudent()">Delete Student Detail</button>
+    <p id="delete"></p>
+
+    <!-- Increase Student fees in search of name -->
+    <h3>Increase Student Fees in search of Name</h3>
+    <button onclick="increaseFees()">Meena Fees Increase!</button>
+    <p id="feesInc"></p>
+
+    <!-- Filter and Sort MERN student by Name -->
+    <h3>Filter and Sort MERN student by Name</h3>
+    <button onclick="showMERN()">Show MERN Students</button>
+    <p id="show"></p>
+
+    <!-- All Students in Alphabetical Order -->
+    <h3>All Students in Alphabetical Order</h3>
+    <button onclick="alpabetOrder()">Show Students!</button>
+    <p id="order"></p>
+
+    <script>
+        let studentData1 = `[
+        {"id": 1, "name": "Arun", "course": "Python", "fees": 25000, "active": true },
+        {"id": 2, "name": "Divya", "course": "MERN", "fees": 45000, "active": true },
+        {"id": 3, "name": "Meena", "course": "Java", "fees": 20000, "active": true },
+        {"id": 4, "name": "Hari", "course": "Python", "fees": 25000, "active": false }
+        ]`;
+
+        let students = JSON.parse(studentData1);
+
+        function updateCourse() {
+
+            students = students.map(student => {
+                if (student.id === 1) {
+                    return { ...student, course: "Full Stack" };
+                }
+                return student;
+            });
+
+            let studentCourse = "";
+            students.forEach(s => {
+                studentCourse +=
+                    "ID: " + s.id + "<br>" +
+                    "Name: " + s.name + "<br>" +
+                    "Course: " + s.course + "<br><br>";
+            });
+
+            document.getElementById("courseUpdate").innerHTML = studentCourse;
+        }
+    </script>
+
+    <script src="./jasonreach.js"></script>
+</body>
+
+</html>
