@@ -1,0 +1,35 @@
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from 'react';
+import logo from './assets/logo.png';
+
+function Navigationbar() {
+    return (
+        <>
+            <Navbar expand="lg" className=' navcolor'>
+                <Container className='nav'>
+                    <Navbar.Brand href="#">
+                        <img src={logo} width={150} height={50} className='d-inline-block align-top' alt="logo" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id='basic-navbar-nav'>
+                        <Nav className='me-auto navin'  >
+                            <Nav.Link className='home' href='#home'>HOME</Nav.Link>
+                            <NavDropdown title='ABOUT' id='basic-nav-dropdown' className='drop' >
+                                <NavDropdown.Item href='#product' >PRODUCT</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title='BLOG' id='basic-nav-dropdown' className='drop' >
+                                <NavDropdown.Item href='#singlepost'>SINGLE POST</NavDropdown.Item>
+                            </NavDropdown>
+                            <Nav.Link id='contact' href='#contact'>CONTACT</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </>
+    );
+}
+
+export default Navigationbar;
