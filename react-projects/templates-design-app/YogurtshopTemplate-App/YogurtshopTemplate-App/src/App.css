@@ -138,12 +138,12 @@
   padding: 55px;
 }
 .social {
-  padding: 20px 190px 0px 250px;
+  padding: 20px 190px 0px 50px;
   justify-content: center;
 }
 .social p {
   color: #ffff;
   font: 12px "Roboto", sans-serif;
-  padding: 15px 100px;
-  justify-content: center;
+  padding: 20px 0 0 375px;
+  text-align: center;
 }

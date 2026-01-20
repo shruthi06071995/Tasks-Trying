@@ -12,10 +12,10 @@ function Footer() {
         <>
             <Container fluid className="media">
                 <Row className="social">
-                    <Col xs={2} ><img src={facebook} width={40} alt="" /></Col>
-                    <Col xs={2} ><img src={twitter} width={40} alt="" /></Col>
-                    <Col xs={2} ><img src={google} width={40} alt="" /></Col>
-                    <Col xs={2} ><img src={pintrest} width={40} alt="" /></Col>
+                    <Col xs={1} ><img src={facebook} width={40} alt="" /></Col>
+                    <Col xs={1} ><img src={twitter} width={40} alt="" /></Col>
+                    <Col xs={1} ><img src={google} width={40} alt="" /></Col>
+                    <Col xs={1} ><img src={pintrest} width={40} alt="" /></Col>
                     <p>@ 2023 Freeeze.All Rights Reserved</p>
                 </Row>
                 
