@@ -163,6 +163,7 @@
   font-family: "Magra", sans-serif;
   font-weight: 700;
   font-style: normal;
+  justify-content: center;
 }
 .fluid a {
   color: #7a6666;
@@ -170,16 +171,14 @@
 .fluid p {
   color: #7a6666;
   padding: 0px 0px 0px 30px;
-  justify-content: center;
 }
 .classic img {
   margin: 10px 20px 15px;
-  justify-content: center;
 }
 .classic h3 {
   color: #e32a62;
   font: 20px "Lato", sans-serif;
-  text-align: center;
+  padding: 0px 90px;
 }
 .classic-c h3 {
   color: #e32a62;
@@ -188,7 +187,6 @@
 }
 .blast img {
   margin: 10px 20px 15px;
-  justify-content: center;
 }
 .blast h3 {
   color: #e32a62;
@@ -206,8 +204,7 @@
   padding: 0px 0 0 70px;
 }
 .special img {
-   margin: 0px 20px 15px;
-  justify-content: center; 
+   margin: 0px 20px 15px; 
 }
 .special-p h3 {
   color: #e32a62;
