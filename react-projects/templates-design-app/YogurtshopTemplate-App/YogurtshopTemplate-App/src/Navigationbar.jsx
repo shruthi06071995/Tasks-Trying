@@ -3,7 +3,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from './assets/logo.png';
+
 
 function Navigationbar() {
     return (
@@ -16,9 +19,9 @@ function Navigationbar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className='me-auto navin'  >
-                            <Nav.Link className='home' href='#home'>HOME</Nav.Link>
+                            <Nav.Link className='home' as={Link} to='/' >HOME</Nav.Link>
                             <NavDropdown title='ABOUT' id='basic-nav-dropdown' className='drop' >
-                                <NavDropdown.Item href='#product' >PRODUCT</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to='/product' >PRODUCT</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title='BLOG' id='basic-nav-dropdown' className='drop' >
                                 <NavDropdown.Item href='#singlepost'>SINGLE POST</NavDropdown.Item>

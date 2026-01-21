@@ -134,16 +134,83 @@
 }
 .media {
   background-color: #e32a62;
-  font: 16px "Times New Roman";
-  padding: 55px;
+  font: 14px "Roboto", sans-serif;
+  padding: 40px 0 120px;
 }
-.social {
-  padding: 20px 190px 0px 50px;
-  justify-content: center;
-}
+
 .social p {
   color: #ffff;
-  font: 12px "Roboto", sans-serif;
-  padding: 20px 0 0 375px;
+  font: 12px;
+}
+.heading {
+  background-color: #c8c10d;
+  padding: 28px 0px 23px;
+  font: 30px "Lato", sans-serif;
+  color: #fff;
   text-align: center;
+}
+.fluid {
+  padding: 72px 0px;
+}
+
+.fluid col {
+  padding: 0px 0px 22px;
+  
+}
+.fluid h2 {
+  color: #e32a62;
+  padding: 47px 0px 27px 30px;
+  font-family: "Magra", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.fluid a {
+  color: #7a6666;
+}
+.fluid p {
+  color: #7a6666;
+  padding: 0px 0px 0px 30px;
+  justify-content: center;
+}
+.classic img {
+  margin: 10px 20px 15px;
+  justify-content: center;
+}
+.classic h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  text-align: center;
+}
+.classic-c h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  padding: 20px 0 0 10px;
+}
+.blast img {
+  margin: 10px 20px 15px;
+  justify-content: center;
+}
+.blast h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  padding: 0px 0 0 80px;
+}
+.blast-p h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  padding: 10px 0 0 40px;
+}
+.special h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  padding: 0px 0 0 70px;
+}
+.special img {
+   margin: 0px 20px 15px;
+  justify-content: center; 
+}
+.special-p h3 {
+  color: #e32a62;
+  font: 20px "Lato", sans-serif;
+  padding: 10px 0 0 40px;
 }
