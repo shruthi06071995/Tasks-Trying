@@ -5,6 +5,7 @@ import Header from './Header'
 import Home from './Home'
 import Navigationbar from './Navigationbar'
 import Product from './Product'
+import About from "./About";
 
 function App() {
 
@@ -17,11 +18,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/about" element={<About />} />
       </Routes>
 
       <Footer />
     </>
-  )
+  );
 }
 
 export default App

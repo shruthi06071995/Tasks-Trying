@@ -16,13 +16,23 @@ function Navigationbar() {
                     <Navbar.Brand href="#">
                         <img src={logo} width={150} height={50} className='d-inline-block align-top' alt="logo" />
                     </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id='basic-navbar-nav'>
-                        <Nav className='me-auto navin'  >
+                        <Nav className='me-auto navin align-items-center'>
+
+                            {/* Home */}
                             <Nav.Link className='home' as={Link} to='/' >HOME</Nav.Link>
-                            <NavDropdown title='ABOUT' id='basic-nav-dropdown' className='drop' >
+
+                            {/*About + Dropdown (joined)*/}
+                            <Nav.Link className='about-link' id='about' as={Link} to='/about'>ABOUT</Nav.Link>
+
+                            {/* Product dropdown under about */}
+                            <NavDropdown title='' id='about-product-dropdown' className='about-dropdown'>
                                 <NavDropdown.Item as={Link} to='/product' >PRODUCT</NavDropdown.Item>
                             </NavDropdown>
+
+                            
                             <NavDropdown title='BLOG' id='basic-nav-dropdown' className='drop' >
                                 <NavDropdown.Item href='#singlepost'>SINGLE POST</NavDropdown.Item>
                             </NavDropdown>

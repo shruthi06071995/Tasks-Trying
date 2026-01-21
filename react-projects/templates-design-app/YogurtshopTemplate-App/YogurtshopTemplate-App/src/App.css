@@ -53,6 +53,17 @@
 .drop :hover {
   color: #d0d664;
 }
+#about {
+  color: #7a6666;
+  font: 15px 'Lato', sans-serif;
+  margin: 0px 35px;
+}
+#about:hover {
+  color: #d0d664;
+}
+.about-dropdown {
+  padding: 0 10px ;
+}
 #contact {
   color: #7a6666;
   font: 15px 'Lato', sans-serif;
@@ -210,4 +221,14 @@
   color: #e32a62;
   font: 20px "Lato", sans-serif;
   padding: 10px 0 0 40px;
+}
+.about-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.about-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
