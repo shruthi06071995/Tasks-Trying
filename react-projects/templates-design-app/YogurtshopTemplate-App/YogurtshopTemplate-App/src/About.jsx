@@ -13,9 +13,12 @@ function About() {
                     <div>
                         <Row>
                             <h3>BE PART OF OUR COMMUNITY</h3>
-                            <p>If you're experiencing <br />issue or having concerns <br />
-                            </p>
+                            <p>If you're experiencing issue or having concerns about this website template, join the discussion <a href="#">on our forum</a>
+                                and meet other people in the community who share the same interests.</p>
                         </Row>
+                    </div>
+                    <div>
+                        
                     </div>
                 </Container>
             </Container>
