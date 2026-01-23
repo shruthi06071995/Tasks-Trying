@@ -232,3 +232,61 @@
   height: auto;
   object-fit: cover;
 }
+.horizontal {
+   background-color: #efedee;
+   float: left;
+   margin: 0 10px 0 40px;
+   padding: 36px 0 34px;
+   width: 280px;
+}
+.horizontal h3 {
+  display: block;
+  line-height: 38px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+  text-align: center;
+  width: 300px;
+  font: 24px "Lato", sans-serif;
+  color: #cb3362;
+}
+.horizontal p {
+  line-height: 48px;
+  margin: 0 auto;
+  text-align: center;
+  width: 169px;
+  color: #7a6666;
+}
+.aboutclass {
+  margin: 0 auto;
+  max-width: 960px;
+  overflow: hidden;
+  padding: 40px 0 110px;
+}
+.aboutclass a {
+   color: #7a6666;
+}
+.vertical {
+  margin: 0;
+  padding: 0 0 0 30px;
+  width: 560px;
+}
+.vertical h2 {
+  color: #cb3362;
+  font-family: "Lato",sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0;
+  padding: 0 0 27px;
+  text-align: left;
+}
+.vertical p {
+  color: #7a6666;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0;
+  padding: 0 0 24px;
+  text-align: left;
+}
