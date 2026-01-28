@@ -1,0 +1,77 @@
+.blog {
+  padding: 60px 20px 150px 10px;
+  position: relative;
+  left: 100px;
+}
+
+.blog a {
+  color: #4e6779;
+}
+
+.blog a:hover {
+  color: #c8c10d;
+}
+
+.blog h3 {
+  color: #cb3362;
+  font: 24px "Lato", sans-serif;
+  line-height: 24px;
+}
+
+.blog span {
+  font: 3px;
+  color: #4e6779;
+}
+
+.blog button:hover {
+  background-color: #bdb714;
+}
+
+.blog p {
+  color: #4e6779;
+}
+.diet {
+  justify-content: center;
+  float: right;
+}
+.diet-content {
+  background-color: #efedee;
+  position: relative;
+  bottom: 400px;
+  right: 200px;
+}
+
+.diet-content h4 {
+  color: #cb3362;
+  font: 600 bold "Magra", sans-serif;
+  line-height: 30px;
+  padding: 42px 0 29px;
+  text-align: center;
+  text-transform: capitalize;
+  width: 250px;
+  background-color: yellow;
+}
+
+.diet-content h3 {
+  color: #cb3362;
+  font: 24px "Lato", sans-serif;
+  line-height: 24px;
+  padding: 34px 0 3px;
+  text-align: center;
+  width: 200px;
+}
+
+.diet-content p {
+  color: #7A6666;
+  display: block;
+  font-family: "roboto"regular-webfont;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0;
+  padding: 0 0 24px;
+  text-align: center;
+  text-transform: none;
+  background-color: yellowgreen;
+  width: 250px;
+}

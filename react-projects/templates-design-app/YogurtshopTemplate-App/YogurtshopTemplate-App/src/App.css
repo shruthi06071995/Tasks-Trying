@@ -265,6 +265,9 @@
 .aboutclass a {
    color: #7a6666;
 }
+.horizontal a:hover, .vertical a:hover {
+  color: #c8c10d;
+}
 .vertical {
   margin: 0;
   padding: 0 0 0 30px;

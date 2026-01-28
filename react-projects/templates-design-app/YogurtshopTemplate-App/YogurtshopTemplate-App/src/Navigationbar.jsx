@@ -28,15 +28,20 @@ function Navigationbar() {
                             <Nav.Link className='about-link' id='about' as={Link} to='/about'>ABOUT</Nav.Link>
 
                             {/* Product dropdown under about */}
-                            <NavDropdown title='' id='about-product-dropdown' className='about-dropdown'>
+                            <NavDropdown  id='about-product-dropdown' className='about-dropdown'>
                                 <NavDropdown.Item as={Link} to='/product' >PRODUCT</NavDropdown.Item>
                             </NavDropdown>
 
-                            
-                            <NavDropdown title='BLOG' id='basic-nav-dropdown' className='drop' >
-                                <NavDropdown.Item href='#singlepost'>SINGLE POST</NavDropdown.Item>
+                            {/* Blog + Dropdown (joined) */}
+                            <Nav.Link className='blog-link' id='about' as={Link} to='/blog'>BLOG</Nav.Link>
+
+                            {/* Single Post dropdown under about */}
+                            <NavDropdown id='blog-singlepost-dropdown' className='blog-dropdown' >
+                                <NavDropdown.Item as={Link} to='/singlepost' >SINGLE POST</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link id='contact' href='#contact'>CONTACT</Nav.Link>
+
+                            {/* Contact */}
+                            <Nav.Link className='contact' id='about' as={Link} to='/contact' >CONTACT</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
