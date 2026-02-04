@@ -4,6 +4,10 @@ import { ContactContext } from "./ContactContext";
 function Component1() {
     const {contact1} = useContext(ContactContext);
 
+    function click() {
+        alert("Data Submited")
+    }
+
     return (
         <>
             <div style={{
@@ -15,7 +19,7 @@ function Component1() {
                     <p style={{ border: "1px solid black", padding:"10px", width: "555px", borderRadius: "5px", backgroundColor: "lightgray"}}>Email: {contact1.email}</p>
                     <p style={{ border: "1px solid black", padding:"10px", width: "555px", borderRadius: "5px", backgroundColor: "lightgray"}}>Phone: {contact1.phone}</p>
                     <button style={{padding: "5px", width: "165px", height: "45px", border: "2px solid black", borderRadius: "35px", backgroundColor: "#fefefe"}}
-                    >Submit</button>
+                        onClick={() => click()}                    >Submit</button>
             </div>
         </>
     );
